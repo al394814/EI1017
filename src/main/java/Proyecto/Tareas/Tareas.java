@@ -21,6 +21,14 @@ public class Tareas {
     }
 
     public Tareas(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado ResultadosTarea, LinkedList<String> etiquetas) {
+        this.título=titulos;
+        this.descripción=descripción;
+        this.personas=personas;
+        this.responsable=responsable;
+        this.prioridad=prioridad;
+        this.atributosFecha=atributosFecha;
+        this.ResultadoTarea=ResultadosTarea;
+        this.etiquetas=etiquetas;
 
     }
 }
