@@ -15,4 +15,12 @@ public class Tareas {
     Fecha atributosFecha;
     Resultado ResultadoTarea;
     LinkedList<String> etiquetas;
+
+
+    public Tareas() {
+    }
+
+    public Tareas(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado ResultadosTarea, LinkedList<String> etiquetas) {
+
+    }
 }
