@@ -1,6 +1,6 @@
 package Proyecto.Tareas.Resultado;
 
-public class PáginaWeb {
+public class PáginaWeb extends Resultado {
 
     boolean tipo; //True --> estática || false--> dinámica
     String lenguaje;
