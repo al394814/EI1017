@@ -13,7 +13,11 @@ public class Proyecto {
 
     }
 
-    public  Proyecto(String nombre,Persona persona,Tareas ){
+    public  Proyecto(String nombre,Persona persona,Tareas tareas){
+
+        this.nombre=nombre;
+        this.persona=persona;
+        this.tareas=tareas;
 
     }
 }
