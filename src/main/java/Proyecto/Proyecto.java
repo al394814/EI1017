@@ -14,10 +14,12 @@ public class Proyecto {
     }
 
     public  Proyecto(String nombre,Persona persona,Tareas tareas){
-
         this.nombre=nombre;
         this.persona=persona;
         this.tareas=tareas;
-
     }
+
+    public Persona getPersona(){
+        return persona;
+    }//devuelvo la lista pero si no es asi lo cambiare
 }
