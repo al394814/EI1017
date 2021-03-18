@@ -9,6 +9,7 @@ public class Proyecto {
     private Persona persona;
     private Tareas tareas;
 
+
     public Proyecto(){
 
     }
