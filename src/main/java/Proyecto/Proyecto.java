@@ -10,6 +10,7 @@ public class Proyecto {
     private Tareas tareas;
 
 
+
     public Proyecto(){
 
     }

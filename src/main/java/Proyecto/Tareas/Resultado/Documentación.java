@@ -7,6 +7,7 @@ public class Documentación {
 
     public Documentación(){}
 
+
     public Documentación(String campo, int numpaginas, int espaciodisc) {
         this.campo = campo;
         this.numpaginas = numpaginas;
