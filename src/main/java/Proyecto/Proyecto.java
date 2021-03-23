@@ -25,3 +25,4 @@ public class Proyecto {
         return persona;
     }//devuelvo la lista pero si no es asi lo cambiare
 }
+
