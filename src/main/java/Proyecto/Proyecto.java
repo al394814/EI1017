@@ -1,52 +1,52 @@
 package Proyecto;
 
 import Proyecto.Personas.Persona;
-import Proyecto.Tareas.Tareas;
-import com.sun.org.apache.bcel.internal.generic.ARETURN;
-import com.sun.org.apache.xerces.internal.impl.xs.util.XSObjectListImpl;
+import Proyecto.Tareas.Tarea;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Proyecto {
 
     private String nombre;
-    private List<Persona> persona;
-    private List<Tareas>tareas;
-
-
+    private List<Persona> personas;
+    private List<Tarea>tareas;
 
     public Proyecto(){
-
     }
 
-    public  Proyecto(String nombre,List<Persona> persona,List<Tareas> tareas){
-
+    public  Proyecto(String nombre){
         this.nombre=nombre;
-        this.persona=persona;
-        this.tareas=tareas;
-
+        this.personas= new LinkedList<Persona>();
+        this.tareas=new LinkedList<Tarea>();
     }
 
-  /*  public void leeProyecto(){
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el nombre del proyecto: ");
-        String nombreProyecto = sc.next();
-        creadorProyecto(nombreProyecto);
-    }*/
-
-    public static Proyecto creadorProyecto(String nombreProyecto){
-        List<Persona> listaPersonas = new LinkedList<Persona>();
-        List<Tareas> listaTareas = new LinkedList<Tareas>();
-        return new Proyecto(nombreProyecto,listaPersonas,listaTareas);
-    }
-
+    public List<Tarea> getTareas() { return tareas; }
 
     public List<Persona> getPersona(){
-        return persona;
-    }//devuelvo la lista pero si no es asi lo cambiare
+        return personas;
+    }
+
+    public static Proyecto creadorProyecto(String nombreProyecto){
+        return new Proyecto(nombreProyecto);
+    }
+
+    public void añadirPersonaProyecto(Persona personaNueva){
+        personas.add(personaNueva);
+    }
+
+    public void añadirTareaProyecto(Tarea tareaNueva){
+        tareas.add(tareaNueva);
+    }
+
+    public List<Tarea> personaTareas(Proyecto proyecto, String dni) {
+        for (Persona persona: proyecto.getPersona())
+            if (persona.getDni()==dni)
+                return persona.getListaTareas();
+
+        return null;
+    }
+
 }
 
 
