@@ -5,7 +5,7 @@ import Proyecto.Tareas.Resultado.Resultado;
 
 import java.util.LinkedList;
 
-public class Tareas {
+public class Tarea {
 
     String título;
     String descripción;
@@ -17,10 +17,10 @@ public class Tareas {
     LinkedList<String> etiquetas;
 
 
-    public Tareas() {
+    public Tarea() {
     }
 
-    public Tareas(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado ResultadosTarea, LinkedList<String> etiquetas) {
+    public Tarea(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado ResultadosTarea, LinkedList<String> etiquetas) {
         this.título = titulos;
         this.descripción = descripción;
         this.personas = personas;
@@ -33,11 +33,11 @@ public class Tareas {
     }
 
 
-    public void addPersonas(Persona persona) {
+    public void addPersonasTarea(Persona persona) {
         this.personas.add(persona);
     }
 
-    public void eliminarPersona(Persona persona){
+    public void eliminarPersonaTarea(Persona persona){
         this.personas.remove(persona);
     }
     public int getPersonas(){
