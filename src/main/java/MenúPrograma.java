@@ -5,12 +5,10 @@ import static Proyecto.Proyecto.*;
 
 public class MenúPrograma {
 
-    public void leeProyecto(){
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el nombre del proyecto: ");
-        String nombreProyecto = sc.next();
-        creadorProyecto(nombreProyecto);
-    }
+    /*
+    Utilizando la clase Enum tenemos que hacer un
+    menú que permita al usuario crear todo lo que
+    para su proyecto
+                                       */
 
 }

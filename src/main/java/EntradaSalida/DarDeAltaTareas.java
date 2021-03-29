@@ -1,0 +1,69 @@
+package EntradaSalida;
+
+import Proyecto.Personas.Persona;
+import Proyecto.Proyecto;
+import Proyecto.Tareas.Fecha;
+import Proyecto.Tareas.Tarea;
+
+import java.util.LinkedList;
+import java.util.Scanner;
+
+import static EntradaSalida.MétodosAuxiliares.ListaPersonasAsignadasTarea.listaPersonasAsignadasTarea;
+import static EntradaSalida.MétodosAuxiliares.PedirAlUsuarioListaDeEtiquetasDeUnaTarea.PedirAlUsuarioListaDeEtiquetasDeUnaTarea;
+import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaIntroducirMásDatos;
+
+public class DarDeAltaTareas {
+
+    public void darDeAltaTareas(Scanner sc, Proyecto proyecto){
+
+        System.out.println("\nHA SELECCIONADO LA OPCIÓN DAR DE ALTA TAREAS DE UN PROYECTO\n");
+        System.out.println("\nDEBE INTRODUCIR TODAS LAS TAREAS DEL PROYECTO CON SUS DATOS");
+
+        boolean quedanTareasPorIntroducir = true;
+
+        while (quedanTareasPorIntroducir){
+
+            System.out.println("\nTÍTULO ---> ");
+            String título = sc.next();
+
+            System.out.println("\nDESCRIPCIÓN ---> ");
+            String descripción = sc.next();
+
+            LinkedList<Persona> listaPersonasAsignadasTarea= listaPersonasAsignadasTarea(sc,proyecto);
+
+            System.out.println("\nINTRODUCE EL RESPONSABLE DE LA TAREA(ESTA PERSONA DEBE ESTAR ENTRE LAS PERSONA ASIGNADAS A LA TAREA) ---> ");
+            String dniResponsable = sc.next();
+
+            Persona personaResponsable = proyecto.devuelvoPersonaConEsteDni(dniResponsable);
+
+            System.out.println("\nINDICA LA PRIORIDAD DE LA TAREA, PUNTUANDOLA DEL 1(MUY BAJA) AL 5(MUY ALTA) ---> ");
+            int prioridad = sc.nextInt();
+
+            System.out.println("\nFECHA DE CREACIÓN ---> ");
+            String fechaCreación = sc.next();
+
+            System.out.println("\nFECHA DE FINALIZACIÓN(LA TAREA PUEDE NO HABER FINALIZADO TODAVÍA Y NO DEBERÁ INTRODUCIR NADA) ---> ");
+            String fechaFinalización = sc.next();
+            boolean finalizado;
+            if ("".equals(fechaFinalización))
+                finalizado=false;
+            else
+                finalizado=true;
+
+            Fecha atributosFecha = Fecha.crearFecha(fechaCreación,fechaFinalización,finalizado);
+
+            LinkedList<String> etiquetas = PedirAlUsuarioListaDeEtiquetasDeUnaTarea(sc);
+
+            //Falta tratar los resultados de la tarea.
+
+            proyecto.añadirTareaProyecto(Tarea.añadirTareaProyecto(título,descripción,listaPersonasAsignadasTarea,personaResponsable,prioridad,atributosFecha, null,etiquetas));
+            quedanTareasPorIntroducir=deseaIntroducirMásDatos(new String("TAREAS"), sc);
+        }
+
+        System.out.println("\nLA TAREA HA FINALIZADO CON ÉXITO.");
+
+    }
+
+
+
+}
