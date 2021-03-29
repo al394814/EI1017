@@ -14,7 +14,7 @@ public class Proyecto {
 
     public Proyecto(){
     }
-
+//
     public  Proyecto(String nombre){
         this.nombre=nombre;
         this.personas= new LinkedList<Persona>();
