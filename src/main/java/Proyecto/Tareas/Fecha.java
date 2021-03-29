@@ -17,6 +17,7 @@ public class Fecha {
     public boolean getFinalizado() {
         return finalizado;
     }
+
     public String getFechaFinalización() {
         return fechaFinalización;
     }
@@ -31,6 +32,11 @@ public class Fecha {
 
     }
 
+
+    public boolean isFinalizado() {
+        return finalizado;
+    }
+
     public String imprimirEstadoTarea() {
 
         String estadoTarea;
@@ -39,5 +45,9 @@ public class Fecha {
         else estadoTarea="Sin Finalizar";
 
         return  estadoTarea;
+    }
+
+    public void Finalizar(){
+        finalizado = true;
     }
 }

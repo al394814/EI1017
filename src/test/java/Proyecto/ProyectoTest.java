@@ -27,12 +27,12 @@ class ProyectoTest {
 
     }
 
-    void añadirPersonaProyecto(){
+    @Test
+    void añadirPersonaProyecto() {
         Proyecto proyecto = new Proyecto();
-        String dni= "tretre";
+        String dni = "tretre";
         Persona p = new Persona("paco", dni, "fsef");
         proyecto.añadirPersonaProyecto(p);
-        proyecto.EncontramosDniEnLasPersonasDelProyecto(dni);
         assertEquals(proyecto.EncontramosDniEnLasPersonasDelProyecto(dni), p);
     }
     // En el proyecto no se pueden dar de baja personas

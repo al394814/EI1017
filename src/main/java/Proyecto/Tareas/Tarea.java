@@ -4,6 +4,7 @@ import Proyecto.Personas.Persona;
 import Proyecto.Tareas.Resultado.Resultado;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Tarea {
 
@@ -17,8 +18,12 @@ public class Tarea {
     LinkedList<String> etiquetas;
 
 
-    public Tarea() {
+
+    public Tarea(String ttt, String descripción, List<Persona> l, List<Persona> personas, int prioridad, Fecha f, Resultado r, LinkedList<String> s) {
     }
+
+
+
 
     public Tarea(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado ResultadosTarea, LinkedList<String> etiquetas) {
         this.título = titulos;
@@ -36,6 +41,9 @@ public class Tarea {
         return título;
     }
 
+    public Fecha getAtributosFecha() {
+        return atributosFecha;
+    }
 
     public static Tarea añadirTareaProyecto(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado resultadosTarea, LinkedList<String> etiquetas){
         return new Tarea(titulos,descripción,personas,responsable,prioridad,atributosFecha,resultadosTarea,etiquetas);
@@ -73,4 +81,11 @@ public class Tarea {
         return sb.toString();
     }
 
+    public boolean EstadoTarea(){
+        return this.getAtributosFecha().getFinalizado();
+    }
+
+    public void finalizarTarea(){
+        this.getAtributosFecha().Finalizar();
+}
 }

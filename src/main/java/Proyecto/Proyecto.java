@@ -13,7 +13,10 @@ public class Proyecto {
     private List<Tarea>tareas;
 
     public Proyecto(){
+        this.personas= new LinkedList<Persona>();
+        this.tareas=new LinkedList<Tarea>();
     }
+
 //
     public  Proyecto(String nombre){
         this.nombre=nombre;
@@ -34,6 +37,7 @@ public class Proyecto {
     public void añadirPersonaProyecto(Persona personaNueva){
         personas.add(personaNueva);
     }
+
 
     public void añadirTareaProyecto(Tarea tareaNueva){
         tareas.add(tareaNueva);
@@ -68,7 +72,6 @@ public class Proyecto {
                 return tarea;
         return null;
     }
-
 
 
 }
