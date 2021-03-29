@@ -9,14 +9,15 @@ import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaInt
 public class PedirAlUsuarioListaDeEtiquetasDeUnaTarea {
 
     public static LinkedList<String> PedirAlUsuarioListaDeEtiquetasDeUnaTarea(Scanner sc){
-        System.out.println("\nAÑADE TODAS LAS ETIQUETAS QUE CARACTERIZEN ESTA TAREA ");
+        System.out.print("\nAÑADE TODAS LAS ETIQUETAS QUE CARACTERIZEN ESTA TAREA ");
         LinkedList<String> listaEtiquetas = new LinkedList<String>();
         boolean quedanEtiquetasPorIntroducir = true;
         int contador=1;
 
         while(quedanEtiquetasPorIntroducir){
 
-            System.out.println("\nINTRODUZCA LA "+contador+" ETIQUETA DE LA TAREA ---> ");
+            System.out.print("\nINTRODUZCA LA "+contador+" ETIQUETA DE LA TAREA ---> ");
+            contador++;
             String etiqueta = sc.next();
             listaEtiquetas.add(etiqueta);
 

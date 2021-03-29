@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class TareasResponsablePersona {
 
-    public void TareasResponsablePersona(Scanner sc, Proyecto proyecto){
+    public static void TareasResponsablePersona(Scanner sc, Proyecto proyecto){
 
         System.out.println("\nHA SELECCIONADO LA OPCIÓN INTRODUCIR TAREAS BAJO LA RESPONSABILIDAD DE UNA PERSONA\n");
 

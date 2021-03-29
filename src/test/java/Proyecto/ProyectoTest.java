@@ -14,25 +14,25 @@ class ProyectoTest {
 
     @Test
     void getTareas() {
-        Proyecto proyecto = new Proyecto();
-        List<Tarea> l = new ArrayList<>();
+        Proyecto proyecto = new Proyecto("nombreProyecto");
+        List<Tarea> l = new ArrayList<Tarea>();
         assertEquals(l, proyecto.getTareas());
     }
 
     @Test
     void getPersona() {
         Proyecto proyecto = new Proyecto();
-        List<Persona> l = new ArrayList<>();
+        List<Persona> l = new ArrayList<Persona>();
         assertEquals(l, proyecto.getPersona());
 
     }
-
     @Test
-    void añadirPersonaProyecto() {
+    void añadirPersonaProyecto(){
         Proyecto proyecto = new Proyecto();
-        String dni = "tretre";
+        String dni= "tretre";
         Persona p = new Persona("paco", dni, "fsef");
         proyecto.añadirPersonaProyecto(p);
+        proyecto.EncontramosDniEnLasPersonasDelProyecto(dni);
         assertEquals(proyecto.EncontramosDniEnLasPersonasDelProyecto(dni), p);
     }
     // En el proyecto no se pueden dar de baja personas

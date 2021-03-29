@@ -17,8 +17,7 @@ public class Proyecto {
         this.tareas=new LinkedList<Tarea>();
     }
 
-//
-    public  Proyecto(String nombre){
+    public Proyecto(String nombre){
         this.nombre=nombre;
         this.personas= new LinkedList<Persona>();
         this.tareas=new LinkedList<Tarea>();
@@ -38,21 +37,20 @@ public class Proyecto {
         personas.add(personaNueva);
     }
 
-
     public void añadirTareaProyecto(Tarea tareaNueva){
         tareas.add(tareaNueva);
     }
 
     public List<Tarea> personaListaTareas(String dni) {
         for (Persona persona: this.getPersona())
-            if (persona.getDni()==dni)
+            if (persona.getDni().equals(dni))
                 return persona.getListaTareas();
         return null;
     }
 
     public boolean EncontramosDniEnLasPersonasDelProyecto(String dni) {
         for (Persona persona: this.getPersona())
-            if (persona.getDni()==dni)
+            if (persona.getDni().equals(dni))
                 return true;
         return false;
     }
@@ -60,7 +58,7 @@ public class Proyecto {
     public Persona devuelvoPersonaConEsteDni(String dni){
 
         for (Persona persona: this.getPersona())
-            if (persona.getDni()==dni)
+            if (persona.getDni().equals(dni))
                 return persona;
         return null;
     }
@@ -68,10 +66,11 @@ public class Proyecto {
     public Tarea devuelvoTareaConEsteTítulo(String título){
 
         for (Tarea tarea: this.getTareas())
-            if (tarea.getTítulo()==título)
+            if (tarea.getTítulo().equals(título))
                 return tarea;
         return null;
     }
+
 
 
 }

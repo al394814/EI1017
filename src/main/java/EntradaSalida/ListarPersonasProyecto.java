@@ -5,7 +5,7 @@ import Proyecto.Proyecto;
 
 public class ListarPersonasProyecto {
 
-    public String listarPersonasProyecto(Proyecto proyecto){
+    public static void listarPersonasProyecto(Proyecto proyecto){
 
         StringBuilder sb = new StringBuilder(10000*10000);
 
@@ -13,7 +13,8 @@ public class ListarPersonasProyecto {
 
             sb.append("\n"+persona.toString()+"\n");
 
-        return sb.toString();
+        //return sb.toString();
+        System.out.println(sb);
     }
 
 }

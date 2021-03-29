@@ -9,26 +9,26 @@ import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaInt
 
 public class DarDeAltaPersonas {
 
-    public void darDeAltaPersonas(Scanner sc, Proyecto proyecto){
-        System.out.println("\nHA SELECCIONADO LA OPCIÓN DAR DE ALTA PERSONA\n");
+    public static void darDeAltaPersonas(Scanner sc, Proyecto proyecto){
+        System.out.println("\nHA SELECCIONADO LA OPCIÓN DAR DE ALTA PERSONA");
         System.out.println("\nDEBE INTRODUCIR TODAS LAS PERSONAS DEL PROYECTO CON SUS DATOS");
 
         boolean quedanPersonaPorIntroducir= true;
 
         while(quedanPersonaPorIntroducir){
 
-            System.out.println("\n1-NOMBRE ---> ");
+            System.out.print("\n1-NOMBRE ---> ");
             String nombre = sc.next();
-            System.out.println("\n2-DNI ---> ");
+            System.out.print("\n2-DNI ---> ");
             String dni = sc.next();
-            System.out.println("\n3-CORREO ELECTRÓNICO ---> ");
+            System.out.print("\n3-CORREO ELECTRÓNICO ---> ");
             String correoElectrónico = sc.next();
 
             proyecto.añadirPersonaProyecto(creoPersona(nombre,dni,correoElectrónico));
             quedanPersonaPorIntroducir=deseaIntroducirMásDatos(new String("PERSONAS"),sc);
         }
 
-        System.out.println("\nLA TAREA HA FINALIZADO CON ÉXITO.");
+        System.out.print("\nLA TAREA HA FINALIZADO CON ÉXITO. \n\n");
 
     }
 
