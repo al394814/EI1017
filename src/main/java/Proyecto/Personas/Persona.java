@@ -59,14 +59,14 @@ public class Persona {
                 "\nlistaTareas ---> " + this.imprimirListaTareas();
     }
 
-    public StringBuilder imprimirListaTareas(){
+    public String imprimirListaTareas(){
 
         StringBuilder sb = new StringBuilder(1000*10000);
 
         for (Tarea tarea: this.getListaTareas())
             sb.append(tarea.getTítulo()+", ");
 
-        return sb;
+        return sb.toString();
     }
 
 }

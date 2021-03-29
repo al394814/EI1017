@@ -5,7 +5,7 @@ import Proyecto.Tareas.Tarea;
 
 public class ListarTareasProyecto {
 
-    public StringBuilder listarTareasProyecto(Proyecto proyecto){
+    public String listarTareasProyecto(Proyecto proyecto){
 
         StringBuilder sb = new StringBuilder(10000*10000);//Debe existir una forma mejor que esta, per me he estado informando pero no he encontrado nada mejor.
 
@@ -13,7 +13,7 @@ public class ListarTareasProyecto {
 
             sb.append("\n"+tarea.toString()+"\n");
 
-        return sb;
+        return sb.toString();
     }
 
 }

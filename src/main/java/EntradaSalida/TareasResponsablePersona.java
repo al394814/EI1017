@@ -4,7 +4,6 @@ import Proyecto.Personas.Persona;
 import Proyecto.Proyecto;
 import Proyecto.Tareas.Tarea;
 
-import java.lang.ref.SoftReference;
 import java.util.List;
 import java.util.Scanner;
 

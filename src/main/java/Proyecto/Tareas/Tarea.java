@@ -63,14 +63,14 @@ public class Tarea {
                 "\nResultadoTarea ---> " + this.ResultadoTarea ;
     }
 
-    public StringBuilder imprimirPorPantallaPersonasDeLaTarea(){
+    public String imprimirPorPantallaPersonasDeLaTarea(){
         StringBuilder sb = new StringBuilder(númeroPersonas()*30);
         for (Persona persona: this.getPersonas()){
             sb.append(persona.getNombre()+", ");
         }
         sb.append(".");
 
-        return sb;
+        return sb.toString();
     }
 
 }
