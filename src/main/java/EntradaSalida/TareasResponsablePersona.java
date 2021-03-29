@@ -4,8 +4,10 @@ import Proyecto.Personas.Persona;
 import Proyecto.Proyecto;
 import Proyecto.Tareas.Tarea;
 
+import java.lang.ref.SoftReference;
 import java.util.List;
 import java.util.Scanner;
+
 
 public class TareasResponsablePersona {
 
@@ -16,12 +18,24 @@ public class TareasResponsablePersona {
         System.out.println("\nA QUE PERSONA QUIERE ADJUDICARLE LAS TAREAS DE LAS QUE SEA RESPONSABLE, IDENTIFIQUELO CON SU DNI ---> ");
         String dni = sc.next();
 
-        proyecto.personaTareas(proyecto, dni);
+        Persona persona = proyecto.devuelvoPersonaConEsteDni(dni);
+        List<Tarea> tareasResponsable = persona.getListaTareas();
 
-        System.out.println("\nDEBE INTRODUCIR TODAS LAS TAREAS DE "+dni+" CON TODOS SUS DATOS");
         boolean quedanTareasPorIntroducir=true;
         while (quedanTareasPorIntroducir){
 
+            System.out.println("\nINTRODUCE EL TÍTULO DE LA TAREA PARA IDENTIFICARLA ---> ");
+            String título = sc.next();
+            Tarea  tarea = proyecto.devuelvoTareaConEsteTítulo(título);
+            tareasResponsable.add(tarea);
+
+            System.out.println("\nDESEA INTRODUCIR MÁS TAREAS? (SI/NO) ---> ");
+            String respuesta = sc.next();
+            if ("NO".equals(respuesta))
+                quedanTareasPorIntroducir=false;
+
         }
+        System.out.println("\nHA INCLUIDO TODAS LAS TAREAS DE LAS QUE ES RESPONSABLE "+dni+".");
+        persona.añadirTareasBajoSuResponsabilidad(tareasResponsable);
     }
 }

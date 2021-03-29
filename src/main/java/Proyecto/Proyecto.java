@@ -39,13 +39,37 @@ public class Proyecto {
         tareas.add(tareaNueva);
     }
 
-    public List<Tarea> personaTareas(Proyecto proyecto, String dni) {
-        for (Persona persona: proyecto.getPersona())
+    public List<Tarea> personaListaTareas(String dni) {
+        for (Persona persona: this.getPersona())
             if (persona.getDni()==dni)
                 return persona.getListaTareas();
-
         return null;
     }
+
+    public boolean EncontramosDniEnLasPersonasDelProyecto(String dni) {
+        for (Persona persona: this.getPersona())
+            if (persona.getDni()==dni)
+                return true;
+        return false;
+    }
+
+    public Persona devuelvoPersonaConEsteDni(String dni){
+
+        for (Persona persona: this.getPersona())
+            if (persona.getDni()==dni)
+                return persona;
+        return null;
+    }
+
+    public Tarea devuelvoTareaConEsteTítulo(String título){
+
+        for (Tarea tarea: this.getTareas())
+            if (tarea.getTítulo()==título)
+                return tarea;
+        return null;
+    }
+
+
 
 }
 

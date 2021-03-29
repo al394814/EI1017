@@ -1,13 +1,11 @@
 package EntradaSalida;
 
-import Proyecto.Personas.Persona;
 import Proyecto.Proyecto;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
-import java.util.LinkedList;
 import java.util.Scanner;
 
 import static Proyecto.Personas.Persona.*;
+import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaIntroducirMásDatos;
 
 public class DarDeAltaPersonas {
 
@@ -27,10 +25,7 @@ public class DarDeAltaPersonas {
             String correoElectrónico = sc.next();
 
             proyecto.añadirPersonaProyecto(creoPersona(nombre,dni,correoElectrónico));
-            System.out.println("\nDESEA INTRODUCIR MÁS PERSONAS? ---> \nINTRODUCE SI O NO POR PANTALLA");
-            String entrada = sc.next();
-            if (entrada=="NO")
-                quedanPersonaPorIntroducir=false;
+            quedanPersonaPorIntroducir=deseaIntroducirMásDatos(new String("PERSONAS"),sc);
         }
 
         System.out.println("\nLA TAREA HA FINALIZADO CON ÉXITO.");

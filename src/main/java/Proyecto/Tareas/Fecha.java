@@ -24,4 +24,20 @@ public class Fecha {
     public String getFechaCreación() {
         return fechaCreación;
     }
+
+    public static Fecha crearFecha(String fechaCreación,String fechaFinalización, boolean finalizado){
+
+        return new Fecha(fechaCreación,fechaFinalización,finalizado);
+
+    }
+
+    public String imprimirEstadoTarea() {
+
+        String estadoTarea;
+        if (finalizado)
+            estadoTarea="Finalizada";
+        else estadoTarea="Sin Finalizar";
+
+        return  estadoTarea;
+    }
 }

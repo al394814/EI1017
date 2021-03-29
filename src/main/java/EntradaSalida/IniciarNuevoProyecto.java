@@ -11,5 +11,6 @@ public class IniciarNuevoProyecto {
         System.out.println("Introduce el nombre del proyecto: ");
         String nombreProyecto = sc.next();
         creadorProyecto(nombreProyecto);
+        System.out.println("\nLA TAREA HA FINALIZADO CON ÉXITO.");
     }
 }

@@ -3,6 +3,7 @@ package Proyecto.Personas;
 import Proyecto.Tareas.Tarea;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Persona {
 
@@ -13,7 +14,9 @@ public class Persona {
 
     public Persona(){}
 
-    public Persona(String nombre, String dni,String correoElectrónico){
+
+
+    public Persona(String nombre, String dni, String correoElectrónico){
         this.nombre=nombre;
         this.dni=dni;
         this.correoElectrónico=correoElectrónico;
@@ -41,6 +44,29 @@ public class Persona {
 
         return new Persona(nombre,dni,correoElectrónico);
 
+    }
+
+    public void añadirTareasBajoSuResponsabilidad(List<Tarea> TareasResponsable){
+        this.listaTareas.addAll(TareasResponsable);
+    }
+
+    @Override
+    public String toString() {
+        return "\nPERSONA\n" +
+                "\nnombre ---> '" + this.nombre + '\'' +
+                "\ndni ---> '" + this.dni + '\'' +
+                "\ncorreoElectrónico ---> '" + this.correoElectrónico + '\'' +
+                "\nlistaTareas ---> " + this.imprimirListaTareas();
+    }
+
+    public StringBuilder imprimirListaTareas(){
+
+        StringBuilder sb = new StringBuilder(1000*10000);
+
+        for (Tarea tarea: this.getListaTareas())
+            sb.append(tarea.getTítulo()+", ");
+
+        return sb;
     }
 
 }
