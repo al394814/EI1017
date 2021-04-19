@@ -28,7 +28,7 @@ public class DarDeAltaTareas {
             try {
                 System.out.print("\nTÍTULO ---> ");
                 String título = sc.next();
-                if (!UtilidadesParaListas.objetoEstaEnListaObjetos(título,proyecto.getTareas())){
+                if (UtilidadesParaListas.objetoEstaEnListaObjetos(título,proyecto.getTareas())){
 
 
                 System.out.print("\nDESCRIPCIÓN ---> ");
