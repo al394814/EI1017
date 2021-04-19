@@ -1,6 +1,8 @@
 package Proyecto.Tareas.Resultado;
 
-public class PáginaWeb extends Resultado {
+import java.io.Serializable;
+
+public class PáginaWeb extends Resultado implements Serializable {
 
     boolean tipo; //True --> estática || false--> dinámica
     String lenguaje;

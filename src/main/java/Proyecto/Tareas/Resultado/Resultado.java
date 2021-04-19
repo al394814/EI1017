@@ -1,6 +1,8 @@
 package Proyecto.Tareas.Resultado;
 
-public class Resultado {
+import java.io.Serializable;
+
+public class Resultado implements Serializable {
 
     String identificador;
     int horasInvertidas;

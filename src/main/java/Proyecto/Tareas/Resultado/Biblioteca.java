@@ -1,6 +1,8 @@
 package Proyecto.Tareas.Resultado;
 
-public class Biblioteca extends Resultado {
+import java.io.Serializable;
+
+public class Biblioteca extends Resultado implements Serializable {
 
     String lenguajeProgramaciónUsado;
     int líneasCódigo;

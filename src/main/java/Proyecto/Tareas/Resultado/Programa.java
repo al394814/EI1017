@@ -1,6 +1,8 @@
 package Proyecto.Tareas.Resultado;
 
-public class Programa extends Biblioteca {
+import java.io.Serializable;
+
+public class Programa extends Biblioteca implements Serializable {
 
     @Override
     public String toString() {

@@ -1,6 +1,8 @@
 package Proyecto.Tareas.Resultado;
 
-public class Documentación {
+import java.io.Serializable;
+
+public class Documentación implements Serializable {
     private String campo;
     private int numpaginas;
     private int espaciodisc;
