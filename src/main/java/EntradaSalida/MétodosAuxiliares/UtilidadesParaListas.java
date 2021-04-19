@@ -14,10 +14,10 @@ public class UtilidadesParaListas<T> {
         return listaObjetosDeListas.isEmpty();
     }
 
-    public static <T extends Tarea> boolean objetoEstaEnListaObjetos(T objetoNuevo, List<T> listaObjetos){
+    public static <T extends Tarea> boolean objetoEstaEnListaObjetos(String objetoNuevo, List<T> listaObjetos){
 
         for (T objetoDeLaLista: listaObjetos){
-            if (objetoDeLaLista.getClave().equals(objetoNuevo.getClave()))
+            if (objetoDeLaLista.getClave().equals(objetoNuevo))
                 return false;
         }
         return true;

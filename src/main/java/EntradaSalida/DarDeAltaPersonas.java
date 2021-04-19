@@ -1,5 +1,7 @@
 package EntradaSalida;
 
+import EntradaSalida.Excepciones.DarDeAltaPersonaException;
+import EntradaSalida.MétodosAuxiliares.UtilidadesParaListas;
 import Proyecto.Proyecto;
 
 import java.util.Scanner;
@@ -17,21 +19,28 @@ public class DarDeAltaPersonas {
 
         while(quedanPersonaPorIntroducir){
 
+            try {
+                    String nombre = sc.nextLine();
+                    System.out.print("1-NOMBRE ---> ");
+                    String dni = sc.nextLine();
+                    System.out.print("2-DNI ---> ");
+                    if (UtilidadesParaListas.objetoEstaEnListaObjetos(dni,proyecto.getPersona())) {
+                        String correoElectrónico = sc.nextLine();
+                        System.out.print("3-CORREO ELECTRÓNICO ---> ");
 
-            String nombre = sc.nextLine();
-            System.out.print("1-NOMBRE ---> ");
-            String dni = sc.nextLine();
-            System.out.print("2-DNI ---> ");
-            String correoElectrónico = sc.nextLine();
-            System.out.print("3-CORREO ELECTRÓNICO ---> ");
-
-            proyecto.añadirPersonaProyecto(creoPersona(nombre,dni,correoElectrónico));
-            quedanPersonaPorIntroducir=deseaIntroducirMásDatos("PERSONAS",sc);
-
-        }
-
-        System.out.print("\nLA TAREA HA FINALIZADO CON ÉXITO. \n\n");
+                        proyecto.añadirPersonaProyecto(creoPersona(nombre, dni, correoElectrónico));
+                        quedanPersonaPorIntroducir = deseaIntroducirMásDatos("PERSONAS", sc);
+                        System.out.print("\nLA TAREA HA FINALIZADO CON ÉXITO. \n\n");
+                    }
+                    else{
+                    throw new DarDeAltaPersonaException();
+                }
+            }
+             catch (DarDeAltaPersonaException e) {
+                e.printStackTrace();
+            }
 
     }
 
+}
 }
