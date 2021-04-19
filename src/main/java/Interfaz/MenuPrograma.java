@@ -6,18 +6,18 @@ import java.util.Scanner;
 import EntradaSalida.*;
 import Proyecto.Proyecto;
 
-public class MenúPrograma  {
+public class MenuPrograma {
 
     public static void MenúPrograma (Proyecto proyecto) throws IOException, ClassNotFoundException {
 
-        FileOutputStream fos = new FileOutputStream("agenda.bin");
+        FileOutputStream fos = new FileOutputStream("proyecto.bin");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(agenda);
+        oos.writeObject(proyecto);
         oos.close();
 
-        FileInputStream fis = new FileInputStream("agenda.bin");
+        FileInputStream fis = new FileInputStream("proyecto.bin");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        agenda = (Agenda)ois.readObject();
+        proyecto = (Proyecto)ois.readObject();
         ois.close();
 
         Scanner scanner = new Scanner(System.in);

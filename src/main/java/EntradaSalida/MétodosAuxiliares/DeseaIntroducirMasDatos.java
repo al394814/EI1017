@@ -2,7 +2,7 @@ package EntradaSalida.MétodosAuxiliares;
 
 import java.util.Scanner;
 
-public class DeseaIntroducirMásDatos {
+public class DeseaIntroducirMasDatos {
 
     public static boolean deseaIntroducirMásDatos(String tipoDato, Scanner sc){
 

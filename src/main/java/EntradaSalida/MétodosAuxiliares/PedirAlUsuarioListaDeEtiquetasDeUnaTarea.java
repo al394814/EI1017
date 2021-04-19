@@ -1,10 +1,9 @@
 package EntradaSalida.MétodosAuxiliares;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
-import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaIntroducirMásDatos;
+import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMasDatos.deseaIntroducirMásDatos;
 
 public class PedirAlUsuarioListaDeEtiquetasDeUnaTarea {
 

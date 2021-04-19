@@ -6,7 +6,7 @@ import Proyecto.Personas.Persona;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AñadoListaObjetosCumplenCondición {
+public class AnyadoListaObjetosCumplenCondicion {
 
     public static <T extends Persona> List<T> añadoListaObjetosCumplenCondición(List<T> listaObjeto){
 

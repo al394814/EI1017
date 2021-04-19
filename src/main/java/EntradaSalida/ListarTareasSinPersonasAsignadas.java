@@ -6,7 +6,7 @@ import Proyecto.Tareas.Tarea;
 
 import java.util.List;
 
-import static EntradaSalida.MétodosAuxiliares.AñadoListaObjetosCumplenCondición.*;
+import static EntradaSalida.MétodosAuxiliares.AnyadoListaObjetosCumplenCondicion.*;
 
 public class ListarTareasSinPersonasAsignadas  {
 

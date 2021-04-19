@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 import static Proyecto.Personas.Persona.*;
-import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaIntroducirMásDatos;
+import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMasDatos.deseaIntroducirMásDatos;
 
 public class DarDeAltaPersonas implements Serializable {
 

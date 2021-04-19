@@ -2,7 +2,7 @@ package EntradaSalida;
 
 import EntradaSalida.Excepciones.PersonaNoSeEncuentraEnProyectoException;
 import EntradaSalida.Excepciones.TareaNoSeEncuentraEnProyectoException;
-import EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos;
+import EntradaSalida.MétodosAuxiliares.DeseaIntroducirMasDatos;
 
 import EntradaSalida.MétodosAuxiliares.UtilidadesParaListas;
 import Proyecto.Personas.Persona;
@@ -44,7 +44,7 @@ public class TareasResponsablePersona  {
                         throw new TareaNoSeEncuentraEnProyectoException();
                     }
                 } finally {
-                    quedanTareasPorIntroducir = DeseaIntroducirMásDatos.deseaIntroducirMásDatos("TAREAS", sc);
+                    quedanTareasPorIntroducir = DeseaIntroducirMasDatos.deseaIntroducirMásDatos("TAREAS", sc);
                 }
 
             }

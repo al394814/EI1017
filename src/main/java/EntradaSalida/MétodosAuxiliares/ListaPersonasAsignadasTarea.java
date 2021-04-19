@@ -6,7 +6,7 @@ import Proyecto.Proyecto;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaIntroducirMásDatos;
+import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMasDatos.deseaIntroducirMásDatos;
 
 public class ListaPersonasAsignadasTarea {
 

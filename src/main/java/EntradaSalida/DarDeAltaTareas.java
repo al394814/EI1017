@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 import static EntradaSalida.MétodosAuxiliares.ListaPersonasAsignadasTarea.listaPersonasAsignadasTarea;
 import static EntradaSalida.MétodosAuxiliares.PedirAlUsuarioListaDeEtiquetasDeUnaTarea.PedirAlUsuarioListaDeEtiquetasDeUnaTarea;
-import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaIntroducirMásDatos;
+import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMasDatos.deseaIntroducirMásDatos;
 
 public class DarDeAltaTareas implements Serializable {
 
@@ -70,8 +70,7 @@ public class DarDeAltaTareas implements Serializable {
             }
 
             catch (DarDeAltaTareasException e){
-
-
+                e.printStackTrace();
 
             }
 

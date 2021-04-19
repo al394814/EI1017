@@ -1,6 +1,6 @@
 import EntradaSalida.IniciarNuevoProyecto;
 
-import static Interfaz.MenúPrograma.MenúPrograma;
+import static Interfaz.MenuPrograma.MenúPrograma;
 
 public class Main {
 

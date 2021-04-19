@@ -6,7 +6,7 @@ import Proyecto.Tareas.Fecha;
 import Proyecto.Tareas.Resultado.Resultado;
 import Proyecto.Tareas.Tarea;
 import org.junit.jupiter.api.Test;
-import EntradaSalida.MétodosAuxiliares.AñadoListaObjetosCumplenCondición;
+import EntradaSalida.MétodosAuxiliares.AnyadoListaObjetosCumplenCondicion;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -31,9 +31,9 @@ class ListarPersonasNoResponsablesDeTareasTest {
             proyecto.añadirPersonaProyecto(persona);
             proyecto.añadirPersonaProyecto(persona2);
             proyecto.añadirPersonaProyecto(persona3);
-            List<Persona> res = new LinkedList<>();
-            res = AñadoListaObjetosCumplenCondición.añadoListaObjetosCumplenCondición(proyecto.getPersona());
-            List<Persona> res2 = new LinkedList<>();
+            List<Persona> res;
+            res = AnyadoListaObjetosCumplenCondicion.añadoListaObjetosCumplenCondición(proyecto.getPersona());
+            List<Persona> res2 = new LinkedList<Persona>();
             res2.add(persona2);
             res2.add(persona3);
             assertEquals(res2, res);

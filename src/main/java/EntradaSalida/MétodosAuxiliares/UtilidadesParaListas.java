@@ -1,5 +1,7 @@
 package EntradaSalida.MétodosAuxiliares;
 
+import EntradaSalida.TieneClave;
+import EntradaSalida.TieneLista;
 import Proyecto.Tareas.Tarea;
 
 import java.util.LinkedList;
@@ -14,7 +16,7 @@ public class UtilidadesParaListas<T> {
         return listaObjetosDeListas.isEmpty();
     }
 
-    public static <T extends Tarea> boolean objetoEstaEnListaObjetos(String objetoNuevo, List<T> listaObjetos){
+    public static <T extends TieneClave> boolean objetoEstaEnListaObjetos(String objetoNuevo, List<T> listaObjetos){
 
         for (T objetoDeLaLista: listaObjetos){
             if (objetoDeLaLista.getClave().equals(objetoNuevo))
