@@ -11,7 +11,7 @@ public class MarcarTareaComoFinalizada {
         System.out.print("\nINTRODUCE EL TÍTULO DE LA TAREA QUE QUIRES FINALIZAR ---> ");
         String título = sc.next();
         Tarea tarea = proyecto.devuelvoTareaConEsteTítulo(título);
-        tarea.marcarTareaFinalizada();
+        tarea.finalizarTarea();
         System.out.print("\nLA TAREA HA FINALIZADO CON ÉXITO.");
     }
 

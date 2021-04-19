@@ -18,10 +18,10 @@ public class PedirAlUsuarioListaDeEtiquetasDeUnaTarea {
 
             System.out.print("\nINTRODUZCA LA "+contador+" ETIQUETA DE LA TAREA ---> ");
             contador++;
-            String etiqueta = sc.next();
+            String etiqueta = sc.nextLine();
             listaEtiquetas.add(etiqueta);
 
-            quedanEtiquetasPorIntroducir=deseaIntroducirMásDatos(new String("ETIQUETAS"),sc);
+            quedanEtiquetasPorIntroducir=deseaIntroducirMásDatos("ETIQUETAS",sc);
         }
 
         return listaEtiquetas;

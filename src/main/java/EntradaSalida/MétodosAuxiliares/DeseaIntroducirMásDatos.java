@@ -6,10 +6,10 @@ public class DeseaIntroducirMásDatos {
 
     public static boolean deseaIntroducirMásDatos(String tipoDato, Scanner sc){
 
-        System.out.print("\nDESEA INTRODUCIR MÁS "+tipoDato+"? (SI/NO)--->");
         String entrada = sc.next();
-        if ("NO".equals(entrada))
-            return false;
-    return true;
+        System.out.print("DESEA INTRODUCIR MÁS "+tipoDato+"? (s/n)--->");
+        System.out.println("");
+
+        return !"n".equals(entrada);
     }
 }

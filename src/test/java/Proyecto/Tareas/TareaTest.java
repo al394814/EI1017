@@ -12,20 +12,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TareaTest {
 
-
-
     @Test
     void finalizarTarea() {
         Fecha f = new Fecha( "ttt", "ttt", false);
-        List<Persona> l = new ArrayList<>();
+        LinkedList<Persona> l = new LinkedList<Persona>();
         Resultado r = new Resultado();
-        LinkedList<String> s = new LinkedList<>();
-        Tarea t = new Tarea( "ttt", "ttt", l, l, 3, f, r, s );
+        Persona p = new Persona();
+        LinkedList<String> s = new LinkedList<String>();
+        Tarea t = new Tarea("t","d", l,p,1,f,r,s);
         t.finalizarTarea();
         boolean res = t.EstadoTarea();
         assertEquals(true, res  );
-
-
 
     }
 }

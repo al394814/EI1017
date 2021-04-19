@@ -40,15 +40,12 @@ public class DarDeAltaTareas {
             int prioridad = sc.nextInt();
 
             System.out.print("\nFECHA DE CREACIÓN ---> ");
-            String fechaCreación = sc.next();
+            String fechaCreación = sc.nextLine();
 
             System.out.print("\nFECHA DE FINALIZACIÓN(LA TAREA PUEDE NO HABER FINALIZADO TODAVÍA Y NO DEBERÁ INTRODUCIR NADA) ---> ");
-            String fechaFinalización = sc.next();
+            String fechaFinalización = sc.nextLine();
             boolean finalizado;
-            if (" ".equals(fechaFinalización))
-                finalizado=false;
-            else
-                finalizado=true;
+            finalizado = !("".equals(fechaFinalización));
 
             Fecha atributosFecha = Fecha.crearFecha(fechaCreación,fechaFinalización,finalizado);
 

@@ -17,15 +17,17 @@ public class DarDeAltaPersonas {
 
         while(quedanPersonaPorIntroducir){
 
-            System.out.print("\n1-NOMBRE ---> ");
-            String nombre = sc.next();
-            System.out.print("\n2-DNI ---> ");
-            String dni = sc.next();
-            System.out.print("\n3-CORREO ELECTRÓNICO ---> ");
-            String correoElectrónico = sc.next();
+
+            String nombre = sc.nextLine();
+            System.out.print("1-NOMBRE ---> ");
+            String dni = sc.nextLine();
+            System.out.print("2-DNI ---> ");
+            String correoElectrónico = sc.nextLine();
+            System.out.print("3-CORREO ELECTRÓNICO ---> ");
 
             proyecto.añadirPersonaProyecto(creoPersona(nombre,dni,correoElectrónico));
-            quedanPersonaPorIntroducir=deseaIntroducirMásDatos(new String("PERSONAS"),sc);
+            quedanPersonaPorIntroducir=deseaIntroducirMásDatos("PERSONAS",sc);
+
         }
 
         System.out.print("\nLA TAREA HA FINALIZADO CON ÉXITO. \n\n");

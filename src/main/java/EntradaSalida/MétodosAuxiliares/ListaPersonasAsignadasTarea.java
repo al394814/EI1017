@@ -6,27 +6,25 @@ import Proyecto.Proyecto;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-import static EntradaSalida.MétodosAuxiliares.personaconDniNoPerteneceProyectoYpedimosDatos.personaconDniNoPerteneceProyectoYpedimosDatos;
 import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaIntroducirMásDatos;
 
 public class ListaPersonasAsignadasTarea {
 
     public static LinkedList<Persona> listaPersonasAsignadasTarea(Scanner sc, Proyecto proyecto) {
 
-        Persona PersonaNueva;
-
-        System.out.print("\nINTRODUCE EL DNI DE CADA PERSONA ASIGNADA A ESTA TAREA(NO cuando ha introducido DNI de todas las personas)\t(SI para seguir introduciendo)\n");
+        System.out.print("\nINTRODUCE EL DNI DE CADA PERSONA ASIGNADA A ESTA TAREA\n");
         LinkedList<Persona> listaPersonasAsiganadasTarea = new LinkedList<Persona>();
         boolean quedanPersonasPorIntroducir = true;
         int contadorPersonas = 1;
         while (quedanPersonasPorIntroducir){
 
             System.out.print("INTRODUZCA EL DNI DE LA PERSONA "+contadorPersonas+" ---> ");
-            String dni = sc.next();
+            contadorPersonas++;
+            String dni = sc.nextLine();
             if (proyecto.EncontramosDniEnLasPersonasDelProyecto(dni))
                 listaPersonasAsiganadasTarea.add(proyecto.devuelvoPersonaConEsteDni(dni));
             else
-                PersonaNueva = personaconDniNoPerteneceProyectoYpedimosDatos(proyecto,sc,dni);
+                System.out.println("NO EXISTE DENTRO DEL PROYECTO UNA PERSONA CON ESTE DNI\n");
 
             quedanPersonasPorIntroducir=deseaIntroducirMásDatos("PERSONA",sc);
         }

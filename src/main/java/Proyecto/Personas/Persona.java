@@ -1,11 +1,13 @@
 package Proyecto.Personas;
 
+import EntradaSalida.TieneClave;
+import EntradaSalida.TieneLista;
 import Proyecto.Tareas.Tarea;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Persona {
+public class Persona implements TieneLista, TieneClave {
 
     String nombre;
     String dni;
@@ -13,8 +15,6 @@ public class Persona {
     LinkedList<Tarea> listaTareas;
 
     public Persona(){}
-
-
 
     public Persona(String nombre, String dni, String correoElectrónico){
         this.nombre=nombre;
@@ -69,4 +69,11 @@ public class Persona {
         return sb;
     }
 
+    public List getLista() {
+        return listaTareas;
+    }
+
+    public Object getClave() {
+        return getDni();
+    }
 }

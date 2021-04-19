@@ -10,7 +10,8 @@ public class Proyecto {
 
     private String nombre;
     private List<Persona> personas;
-    private List<Tarea>tareas;
+    private List<Tarea> tareas;
+
 
     public Proyecto(){
         this.personas= new LinkedList<Persona>();
@@ -71,6 +72,25 @@ public class Proyecto {
         return null;
     }
 
+    public List<List<Tarea>> devuelveListaTareasDePersonas(){
+
+        List<List<Tarea>> listaTareas = new LinkedList<List<Tarea>>();
+
+        for (Persona persona: this.getPersona())
+            listaTareas.add(persona.getListaTareas());
+
+        return listaTareas;
+    }
+
+    public List<List<Persona>> devuelveListaPersonasDeTareas(){
+
+        List<List<Persona>> listaTareas = new LinkedList<List<Persona>>();
+
+        for (Tarea tarea: this.getTareas())
+            listaTareas.add(tarea.getPersonas());
+
+        return listaTareas;
+    }
 
 
 }

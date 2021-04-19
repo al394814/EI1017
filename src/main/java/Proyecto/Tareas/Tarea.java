@@ -1,12 +1,14 @@
 package Proyecto.Tareas;
 
+import EntradaSalida.TieneClave;
+import EntradaSalida.TieneLista;
 import Proyecto.Personas.Persona;
 import Proyecto.Tareas.Resultado.Resultado;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Tarea {
+public class Tarea extends Persona implements TieneLista, TieneClave  {
 
     String título;
     String descripción;
@@ -16,12 +18,6 @@ public class Tarea {
     Fecha atributosFecha;
     Resultado ResultadoTarea;
     LinkedList<String> etiquetas;
-
-
-
-    public Tarea(String ttt, String descripción, List<Persona> l, List<Persona> personas, int prioridad, Fecha f, Resultado r, LinkedList<String> s) {
-    }
-
 
 
 
@@ -40,7 +36,7 @@ public class Tarea {
     public String getTítulo() {
         return título;
     }
-
+    public LinkedList<Persona> getPersonas(){ return personas; }
     public Fecha getAtributosFecha() {
         return atributosFecha;
     }
@@ -56,9 +52,7 @@ public class Tarea {
     public void eliminarPersonaTarea(Persona persona){
         this.personas.remove(persona);
     }
-    public LinkedList<Persona> getPersonas(){
-        return personas;
-    }
+
     public int númeroPersonas(){return personas.size();}
 
     @Override
@@ -89,4 +83,12 @@ public class Tarea {
         this.getAtributosFecha().Finalizar();
 }
 
+
+    public List getLista() {
+        return personas;
+    }
+
+    public Object getClave() {
+        return getTítulo();
+    }
 }

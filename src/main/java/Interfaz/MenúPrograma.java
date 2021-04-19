@@ -43,6 +43,12 @@ public class MenúPrograma  {
             case MARCAR_TAREA_FINALIZADA:
                 MarcarTareaComoFinalizada.marcarTareaComoFinalizada(scanner,proyecto);
                 break;
+            case LISTAR_TAREAS_SIN_PERSSONAS_ASIGNADAS:
+                ListarTareasSinPersonasAsignadas.listarTareasSinPersonasASigandas(proyecto);
+                break;
+            case LISTAR_PERSONAS_NO_RESPONSABLES_DE_TAREAS:
+                ListarPersonasNoResponsablesDeTareas.listarPersonasNoResponsablesDeTareas(proyecto);
+                break;
             case SALIR:
                 respuesta=false;
                 break;
