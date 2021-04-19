@@ -50,6 +50,10 @@ public class Persona implements TieneLista, TieneClave {
         this.listaTareas.addAll(TareasResponsable);
     }
 
+    public void añadirTareas( Tarea tarea){
+        this.listaTareas.add(tarea);
+    }
+
     @Override
     public String toString() {
         return "\nPERSONA\n" +
