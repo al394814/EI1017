@@ -7,6 +7,7 @@ import Proyecto.Proyecto;
 import Proyecto.Tareas.Fecha;
 import Proyecto.Tareas.Tarea;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ import static EntradaSalida.MétodosAuxiliares.ListaPersonasAsignadasTarea.lista
 import static EntradaSalida.MétodosAuxiliares.PedirAlUsuarioListaDeEtiquetasDeUnaTarea.PedirAlUsuarioListaDeEtiquetasDeUnaTarea;
 import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaIntroducirMásDatos;
 
-public class DarDeAltaTareas {
+public class DarDeAltaTareas implements Serializable {
 
     public static void darDeAltaTareas(Scanner sc, Proyecto proyecto){
 

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import static Proyecto.Proyecto.creadorProyecto;
 
-public class IniciarNuevoProyecto {
+public class IniciarNuevoProyecto  {
 
     public static Proyecto iniciarNuevoProyecto(){
         Scanner sc = new Scanner(System.in);

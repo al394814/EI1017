@@ -3,10 +3,11 @@ package Proyecto;
 import Proyecto.Personas.Persona;
 import Proyecto.Tareas.Tarea;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Proyecto {
+public class Proyecto implements Serializable {
 
     private String nombre;
     private List<Persona> personas;

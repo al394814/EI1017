@@ -1,5 +1,6 @@
 package Interfaz;
 
+import java.io.*;
 import java.util.Scanner;
 
 import EntradaSalida.*;
@@ -7,7 +8,17 @@ import Proyecto.Proyecto;
 
 public class MenúPrograma  {
 
-    public static void MenúPrograma(Proyecto proyecto){
+    public static void MenúPrograma (Proyecto proyecto) throws IOException, ClassNotFoundException {
+
+        FileOutputStream fos = new FileOutputStream("agenda.bin");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(agenda);
+        oos.close();
+
+        FileInputStream fis = new FileInputStream("agenda.bin");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        agenda = (Agenda)ois.readObject();
+        ois.close();
 
         Scanner scanner = new Scanner(System.in);
         boolean respuesta=true;

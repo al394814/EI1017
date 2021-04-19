@@ -4,12 +4,13 @@ import EntradaSalida.Excepciones.DarDeAltaPersonaException;
 import EntradaSalida.MétodosAuxiliares.UtilidadesParaListas;
 import Proyecto.Proyecto;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import static Proyecto.Personas.Persona.*;
 import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMásDatos.deseaIntroducirMásDatos;
 
-public class DarDeAltaPersonas {
+public class DarDeAltaPersonas implements Serializable {
 
     public static void darDeAltaPersonas(Scanner sc, Proyecto proyecto){
         System.out.println("\nHA SELECCIONADO LA OPCIÓN DAR DE ALTA PERSONA");

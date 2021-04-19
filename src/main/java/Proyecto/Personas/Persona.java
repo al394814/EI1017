@@ -4,10 +4,11 @@ import EntradaSalida.TieneClave;
 import EntradaSalida.TieneLista;
 import Proyecto.Tareas.Tarea;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Persona implements TieneLista, TieneClave {
+public class Persona implements TieneLista, TieneClave, Serializable {
 
     String nombre;
     String dni;

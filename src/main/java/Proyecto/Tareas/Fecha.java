@@ -1,6 +1,8 @@
 package Proyecto.Tareas;
 
-public class Fecha {
+import java.io.Serializable;
+
+public class Fecha implements Serializable {
 
     String fechaCreación;
     String fechaFinalización;

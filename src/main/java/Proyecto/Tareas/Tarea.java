@@ -5,10 +5,11 @@ import EntradaSalida.TieneLista;
 import Proyecto.Personas.Persona;
 import Proyecto.Tareas.Resultado.Resultado;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Tarea extends Persona implements TieneLista, TieneClave  {
+public class Tarea extends Persona implements TieneLista, TieneClave, Serializable {
 
     String título;
     String descripción;

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class TareasResponsablePersona {
+public class TareasResponsablePersona  {
 
     public static void TareasResponsablePersona(Scanner sc, Proyecto proyecto){
 
