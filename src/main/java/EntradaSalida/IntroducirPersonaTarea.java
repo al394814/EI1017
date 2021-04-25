@@ -38,7 +38,7 @@ public class IntroducirPersonaTarea {
             }
         }
         catch (TareaNoSeEncuentraEnProyectoException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

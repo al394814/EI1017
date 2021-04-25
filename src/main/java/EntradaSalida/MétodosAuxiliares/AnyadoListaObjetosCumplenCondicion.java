@@ -8,7 +8,7 @@ import java.util.List;
 
 public class AnyadoListaObjetosCumplenCondicion {
 
-    public static <T extends Persona> List<T> añadoListaObjetosCumplenCondición(List<T> listaObjeto){
+    public static <T extends Persona> List<T> anyadoListaObjetosCumplenCondición(List<T> listaObjeto){
 
         List<T> listaResultado = new LinkedList<T>();
 

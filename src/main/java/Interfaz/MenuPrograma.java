@@ -4,6 +4,10 @@ import java.io.*;
 import java.util.Scanner;
 
 import EntradaSalida.*;
+import EntradaSalida.ListadosQuePuedoObtener.ListarPersonasNoResponsablesDeTareas;
+import EntradaSalida.ListadosQuePuedoObtener.ListarPersonasProyecto;
+import EntradaSalida.ListadosQuePuedoObtener.ListarTareasProyecto;
+import EntradaSalida.ListadosQuePuedoObtener.ListarTareasSinPersonasAsignadas;
 import Proyecto.Proyecto;
 
 public class MenuPrograma {
@@ -26,6 +30,7 @@ public class MenuPrograma {
         System.out.println(Opciones.OpcionesDelMenú.getMenú());
         System.out.print("ELIJA ");
         int opcion = scanner.nextInt() - 1;
+            scanner.nextLine();
         Opciones.OpcionesDelMenú opcionMenú = Opciones.OpcionesDelMenú.getOpcion(opcion);
 
         switch (opcionMenú){

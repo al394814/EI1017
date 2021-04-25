@@ -16,10 +16,10 @@ public class UtilidadesParaListas<T> {
         return listaObjetosDeListas.isEmpty();
     }
 
-    public static <T extends TieneClave> boolean objetoEstaEnListaObjetos(String objetoNuevo, List<T> listaObjetos){
+    public static <T extends TieneClave> boolean objetoEstaEnListaObjetos(String identificador, List<T> listaObjetos){
 
         for (T objetoDeLaLista: listaObjetos){
-            if (objetoDeLaLista.getClave().equals(objetoNuevo))
+            if (objetoDeLaLista.getClave().equals(identificador))
                 return false;
         }
         return true;

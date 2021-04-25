@@ -1,4 +1,4 @@
-package EntradaSalida;
+package EntradaSalida.ListadosQuePuedoObtener;
 
 import EntradaSalida.MétodosAuxiliares.AnyadoListaObjetosCumplenCondicion;
 import Proyecto.Personas.Persona;
@@ -12,7 +12,7 @@ public class ListarPersonasNoResponsablesDeTareas  {
 
 
         List<Persona> listaPersonasNoResponsablesDeTareas;
-        listaPersonasNoResponsablesDeTareas = AnyadoListaObjetosCumplenCondicion.añadoListaObjetosCumplenCondición(proyecto.getPersona());
+        listaPersonasNoResponsablesDeTareas = AnyadoListaObjetosCumplenCondicion.anyadoListaObjetosCumplenCondición(proyecto.getPersona());
 
         for (Persona persona: listaPersonasNoResponsablesDeTareas){
             persona.toString();

@@ -32,7 +32,7 @@ class ListarPersonasNoResponsablesDeTareasTest {
             proyecto.añadirPersonaProyecto(persona2);
             proyecto.añadirPersonaProyecto(persona3);
             List<Persona> res;
-            res = AnyadoListaObjetosCumplenCondicion.añadoListaObjetosCumplenCondición(proyecto.getPersona());
+            res = AnyadoListaObjetosCumplenCondicion.anyadoListaObjetosCumplenCondición(proyecto.getPersona());
             List<Persona> res2 = new LinkedList<Persona>();
             res2.add(persona2);
             res2.add(persona3);

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.LinkedList;
 import java.util.List;
 
-import static EntradaSalida.MétodosAuxiliares.AnyadoListaObjetosCumplenCondicion.añadoListaObjetosCumplenCondición;
+import static EntradaSalida.MétodosAuxiliares.AnyadoListaObjetosCumplenCondicion.anyadoListaObjetosCumplenCondición;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ListarTareasSinPersonasAsignadasTest {
@@ -32,7 +32,7 @@ class ListarTareasSinPersonasAsignadasTest {
             l.add(persona2);
             Tarea t2 = new Tarea("t","d", l,p,1,f,r,s);
             List<Tarea> res;
-            res = añadoListaObjetosCumplenCondición(proyecto.getTareas());
+            res = anyadoListaObjetosCumplenCondición(proyecto.getTareas());
             List<Persona> res2 = new LinkedList<Persona>();
             res2.add(t1);
             assertEquals(res2, res);

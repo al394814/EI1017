@@ -48,7 +48,7 @@ public class Persona implements TieneLista, TieneClave, Serializable {
     }
 
     public void añadirTareasBajoSuResponsabilidad(List<Tarea> TareasResponsable){
-        this.listaTareas.addAll(TareasResponsable);
+        this.listaTareas= (LinkedList<Tarea>) TareasResponsable;
     }
 
     public void añadirTareas( Tarea tarea){
@@ -57,8 +57,7 @@ public class Persona implements TieneLista, TieneClave, Serializable {
 
     @Override
     public String toString() {
-        return "\nPERSONA\n" +
-                "\nnombre ---> '" + this.nombre + '\'' +
+        return  "nombre ---> '" + this.nombre + '\'' +
                 "\ndni ---> '" + this.dni + '\'' +
                 "\ncorreoElectrónico ---> '" + this.correoElectrónico + '\'' +
                 "\nlistaTareas ---> " + this.imprimirListaTareas();

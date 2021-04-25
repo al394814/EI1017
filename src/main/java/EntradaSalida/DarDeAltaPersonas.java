@@ -21,27 +21,25 @@ public class DarDeAltaPersonas implements Serializable {
         while(quedanPersonaPorIntroducir){
 
             try {
-                    String nombre = sc.nextLine();
-                    System.out.print("1-NOMBRE ---> ");
-                    String dni = sc.nextLine();
-                    System.out.print("2-DNI ---> ");
-                    if (UtilidadesParaListas.objetoEstaEnListaObjetos(dni,proyecto.getPersona())) {
-                        String correoElectrónico = sc.nextLine();
-                        System.out.print("3-CORREO ELECTRÓNICO ---> ");
 
+                System.out.print("1-NOMBRE ---> ");
+                String nombre = sc.nextLine();
+                System.out.print("2-DNI ---> ");
+                String dni = sc.nextLine();
+                System.out.print("3-CORREO ELECTRÓNICO ---> ");
+                String correoElectrónico = sc.nextLine();
+                if (UtilidadesParaListas.objetoEstaEnListaObjetos(dni,proyecto.getPersona())) {
                         proyecto.añadirPersonaProyecto(creoPersona(nombre, dni, correoElectrónico));
                         quedanPersonaPorIntroducir = deseaIntroducirMásDatos("PERSONAS", sc);
-                        System.out.print("\nLA TAREA HA FINALIZADO CON ÉXITO. \n\n");
                     }
                     else{
                     throw new DarDeAltaPersonaException();
                 }
             }
              catch (DarDeAltaPersonaException e) {
-                e.printStackTrace();
+                 System.out.println(e.getMessage());
             }
-
+        }
+        System.out.print("\nLA TAREA HA FINALIZADO CON ÉXITO. \n\n");
     }
-
-}
 }

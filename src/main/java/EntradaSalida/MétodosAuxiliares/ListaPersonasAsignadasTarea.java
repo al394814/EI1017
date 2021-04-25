@@ -26,7 +26,7 @@ public class ListaPersonasAsignadasTarea {
             else
                 System.out.println("NO EXISTE DENTRO DEL PROYECTO UNA PERSONA CON ESTE DNI\n");
 
-            quedanPersonasPorIntroducir=deseaIntroducirMásDatos("PERSONA",sc);
+            quedanPersonasPorIntroducir=deseaIntroducirMásDatos("PERSONAS",sc);
         }
 
         return listaPersonasAsiganadasTarea;

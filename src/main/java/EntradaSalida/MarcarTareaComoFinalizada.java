@@ -23,7 +23,7 @@ public class MarcarTareaComoFinalizada {
             }
         }
         catch (TareaNoSeEncuentraEnProyectoException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

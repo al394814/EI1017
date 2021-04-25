@@ -24,8 +24,8 @@ public class TareasResponsablePersona  {
 
         try {
             System.out.print("\nA QUE PERSONA QUIERE ADJUDICARLE LAS TAREAS DE LAS QUE SEA RESPONSABLE, IDENTIFIQUELO CON SU DNI ---> ");
-            String dni = sc.next();
-            if (objetoEstaEnListaObjetos(dni,proyecto.getPersona())){
+            String dni = sc.nextLine();
+            if (!objetoEstaEnListaObjetos(dni,proyecto.getPersona())){
 
             Persona persona = proyecto.devuelvoPersonaConEsteDni(dni);
             List<Tarea> tareasResponsable = persona.getListaTareas();
@@ -35,31 +35,31 @@ public class TareasResponsablePersona  {
 
                 try {
                     System.out.print("\nINTRODUCE EL TÍTULO DE LA TAREA PARA IDENTIFICARLA ---> ");
-                    String título = sc.next();
-                    if (UtilidadesParaListas.objetoEstaEnListaObjetos(título, proyecto.getTareas())) {
+                    String título = sc.nextLine();
+                    if (!UtilidadesParaListas.objetoEstaEnListaObjetos(título, proyecto.getTareas())) {
                         Tarea tarea = proyecto.devuelvoTareaConEsteTítulo(título);
                         tareasResponsable.add(tarea);
+                        quedanTareasPorIntroducir = DeseaIntroducirMasDatos.deseaIntroducirMásDatos("TAREAS", sc);
 
                     } else {
                         throw new TareaNoSeEncuentraEnProyectoException();
                     }
-                } finally {
-                    quedanTareasPorIntroducir = DeseaIntroducirMasDatos.deseaIntroducirMásDatos("TAREAS", sc);
+                } catch (TareaNoSeEncuentraEnProyectoException e){
+                    System.out.println(e.getMessage());
                 }
 
             }
-            System.out.println("\nHA INCLUIDO TODAS LAS TAREAS DE LAS QUE ES RESPONSABLE " + dni + ".");
+            System.out.println("\nHA INCLUIDO TODAS LAS TAREAS DE LAS QUE ES RESPONSABLE " + dni + ".\n");
             persona.añadirTareasBajoSuResponsabilidad(tareasResponsable);
             }
             else{
                 throw new PersonaNoSeEncuentraEnProyectoException();
             }
         }
+
         catch (PersonaNoSeEncuentraEnProyectoException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
-        catch (TareaNoSeEncuentraEnProyectoException e){
-            e.printStackTrace();
-        }
+
     }
 }

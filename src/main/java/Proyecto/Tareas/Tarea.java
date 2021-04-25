@@ -58,8 +58,7 @@ public class Tarea extends Persona implements TieneLista, TieneClave, Serializab
 
     @Override
     public String toString() {
-        return "\nTAREA\n" +
-                "\ntítulo ---> '" + this.título + '\'' +
+        return  "\ntítulo ---> '" + this.título + '\'' +
                 "\nresponsable de la tarea ---> " + this.responsable.getNombre() + ""+
                 "\npersonas asignadas a la tarea ---> " + this.imprimirPorPantallaPersonasDeLaTarea() +
                 "\nestado de la tarea ---> " + this.atributosFecha.imprimirEstadoTarea() +
@@ -71,6 +70,7 @@ public class Tarea extends Persona implements TieneLista, TieneClave, Serializab
         for (Persona persona: this.getPersonas()){
             sb.append(persona.getNombre()+", ");
         }
+        sb.deleteCharAt(sb.length()-1);
         sb.append(".");
 
         return sb.toString();

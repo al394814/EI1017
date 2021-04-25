@@ -41,7 +41,7 @@ public class EliminarPersonaTarea implements Serializable {
             }
         }
         catch (TareaNoSeEncuentraEnProyectoException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }

@@ -28,24 +28,25 @@ public class DarDeAltaTareas implements Serializable {
 
             try {
                 System.out.print("\nTÍTULO ---> ");
-                String título = sc.next();
+                String título = sc.nextLine();
                 if (UtilidadesParaListas.objetoEstaEnListaObjetos(título,proyecto.getTareas())){
 
 
                 System.out.print("\nDESCRIPCIÓN ---> ");
-                String descripción = sc.next();
+                String descripción = sc.nextLine();
 
                 LinkedList<Persona> listaPersonasAsignadasTarea = listaPersonasAsignadasTarea(sc, proyecto);
 
                 System.out.print("\nINTRODUCE EL RESPONSABLE DE LA TAREA(ESTA PERSONA DEBE ESTAR ENTRE LAS PERSONA ASIGNADAS A LA TAREA) ---> ");
-                String dniResponsable = sc.next();
+                String dniResponsable = sc.nextLine();
 
                 Persona personaResponsable = proyecto.devuelvoPersonaConEsteDni(dniResponsable);
 
                 System.out.print("\nINDICA LA PRIORIDAD DE LA TAREA, PUNTUANDOLA DEL 1(MUY BAJA) AL 5(MUY ALTA) ---> ");
                 int prioridad = sc.nextInt();
 
-                System.out.print("\nFECHA DE CREACIÓN ---> ");
+                sc.nextLine();
+                System.out.print("FECHA DE CREACIÓN ---> ");
                 String fechaCreación = sc.nextLine();
 
                 System.out.print("\nFECHA DE FINALIZACIÓN(LA TAREA PUEDE NO HABER FINALIZADO TODAVÍA Y NO DEBERÁ INTRODUCIR NADA) ---> ");
@@ -70,7 +71,7 @@ public class DarDeAltaTareas implements Serializable {
             }
 
             catch (DarDeAltaTareasException e){
-                e.printStackTrace();
+                System.out.println(e.getMessage());
 
             }
 
