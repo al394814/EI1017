@@ -11,7 +11,7 @@ public class ListarTareasProyecto {
         int contadorTareas=0;
         for (Tarea tarea: proyecto.getTareas()) {
 
-            sb.append("\nTAREA "+contadorTareas+":\n"+ tarea.toString());
+            sb.append("\nTAREA "+(contadorTareas+1)+":"+ tarea.toString());
             contadorTareas++;
         }
         System.out.println(sb.toString());

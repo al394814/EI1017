@@ -6,7 +6,6 @@ public class Opciones {
 
         DAR_DE_ALTA_PERSONAS("DAR DE ALTA PERSONAS"),
         DAR_DE_ALTA_TAREAS("DAR DE ALTA TAREAS"),
-        ASIGNAR_TAREAS_RESPONSABLE_PERSONA("ASIGNAR TAREAS BAJO LA RESPONSABILIDAD DE UNA PERSONA"),
         ELIMINAR_PERSONA_TAREA("ELIMINAR PERSONA DE UNA TAREA"),
         INTRODUCIR_PERSONA_TAREA("INTRODUCIR PERSONA A UNA TAREA"),
         LISTAR_PERSONAS_PROYECTO("LISTAR LAS PERSONAS DEL PROYECTO"),
@@ -29,6 +28,7 @@ public class Opciones {
         public static OpcionesDelMenú getOpcion(int posicion) {
             return values()[posicion];
         }
+        public static int numeroOpcionesMenu(){return values().length-1;}
 
         public static String getMenú() {
             StringBuilder sb = new StringBuilder();

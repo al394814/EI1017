@@ -16,5 +16,4 @@ public class ListarPersonasProyecto {
         }
         System.out.println(sb);
     }
-
 }

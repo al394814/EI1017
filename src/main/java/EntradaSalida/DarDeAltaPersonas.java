@@ -10,7 +10,7 @@ import java.util.Scanner;
 import static Proyecto.Personas.Persona.*;
 import static EntradaSalida.MétodosAuxiliares.DeseaIntroducirMasDatos.deseaIntroducirMásDatos;
 
-public class DarDeAltaPersonas implements Serializable {
+public class DarDeAltaPersonas {
 
     public static void darDeAltaPersonas(Scanner sc, Proyecto proyecto){
         System.out.println("\nHA SELECCIONADO LA OPCIÓN DAR DE ALTA PERSONA");
@@ -29,8 +29,8 @@ public class DarDeAltaPersonas implements Serializable {
                 System.out.print("3-CORREO ELECTRÓNICO ---> ");
                 String correoElectrónico = sc.nextLine();
                 if (UtilidadesParaListas.objetoEstaEnListaObjetos(dni,proyecto.getPersona())) {
-                        proyecto.añadirPersonaProyecto(creoPersona(nombre, dni, correoElectrónico));
-                        quedanPersonaPorIntroducir = deseaIntroducirMásDatos("PERSONAS", sc);
+                    proyecto.añadirPersonaProyecto(creoPersona(nombre, dni, correoElectrónico));
+                    quedanPersonaPorIntroducir = deseaIntroducirMásDatos("PERSONAS", sc);
                     }
                     else{
                     throw new DarDeAltaPersonaException();

@@ -10,19 +10,19 @@ import Proyecto.Tareas.Tarea;
 import java.io.Serializable;
 import java.util.Scanner;
 
-public class EliminarPersonaTarea implements Serializable {
+public class EliminarPersonaTarea /*implements Serializable*/ {
 
     public static void eliminarPersonaTarea(Scanner sc, Proyecto proyecto) {
 
         try {
-            System.out.println("\nINTRODUCE EL TÍTULO DE LA TAREA QUE DESEAS ELIMINAR ---> ");
-            String título = sc.next();
-            if (UtilidadesParaListas.objetoEstaEnListaObjetos(título,proyecto.getTareas())) {
+            System.out.print("\nINTRODUCE EL TÍTULO DE LA TAREA DE LA CUAL QUIERE BORRAR UNA PERSONA ---> ");
+            String título = sc.nextLine();
+            if (!UtilidadesParaListas.objetoEstaEnListaObjetos(título,proyecto.getTareas())) {
 
                 try {
-                System.out.println("\nINTRODUCE EL DNI DE LA PERSONA QUE DESEA ELIMINAR DE LA TAREA " + título + " ---> ");
-                String dni = sc.next();
-                if (UtilidadesParaListas.objetoEstaEnListaObjetos(dni,proyecto.getPersona())) {
+                System.out.print("\nINTRODUCE EL DNI DE LA PERSONA QUE DESEA ELIMINAR DE LA TAREA " + título + " ---> ");
+                String dni = sc.nextLine();
+                if (!UtilidadesParaListas.objetoEstaEnListaObjetos(dni,proyecto.getPersona())) {
                     System.out.println("\nLA TAREA HA FINALIZADO CON ÉXITO.");
                     Persona persona = proyecto.devuelvoPersonaConEsteDni(dni);
                     Tarea tarea = proyecto.devuelvoTareaConEsteTítulo(título);
@@ -33,7 +33,7 @@ public class EliminarPersonaTarea implements Serializable {
                 }
                 }
                 catch (PersonaNoSeEncuentraEnProyectoException e){
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
             else{

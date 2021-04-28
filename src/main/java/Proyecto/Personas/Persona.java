@@ -60,7 +60,7 @@ public class Persona implements TieneLista, TieneClave, Serializable {
         return  "nombre ---> '" + this.nombre + '\'' +
                 "\ndni ---> '" + this.dni + '\'' +
                 "\ncorreoElectrónico ---> '" + this.correoElectrónico + '\'' +
-                "\nlistaTareas ---> " + this.imprimirListaTareas();
+                "\ntareas Responsable ---> " + this.imprimirListaTareas();
     }
 
     public StringBuilder imprimirListaTareas(){
@@ -68,7 +68,7 @@ public class Persona implements TieneLista, TieneClave, Serializable {
         StringBuilder sb = new StringBuilder(1000*10000);
 
         for (Tarea tarea: this.getListaTareas())
-            sb.append(tarea.getTítulo()+", ");
+            sb.append(tarea.getTítulo()+" ");
 
         return sb;
     }

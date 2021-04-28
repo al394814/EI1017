@@ -68,10 +68,8 @@ public class Tarea extends Persona implements TieneLista, TieneClave, Serializab
     public String imprimirPorPantallaPersonasDeLaTarea(){
         StringBuilder sb = new StringBuilder(númeroPersonas()*30);
         for (Persona persona: this.getPersonas()){
-            sb.append(persona.getNombre()+", ");
+            sb.append(persona.getNombre()+" ");
         }
-        sb.deleteCharAt(sb.length()-1);
-        sb.append(".");
 
         return sb.toString();
     }

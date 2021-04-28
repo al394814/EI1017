@@ -18,11 +18,11 @@ public class DeseaIntroducirMasDatos {
         }
         catch (PedimosUnosDatosSeIntroducenOtrosException e){
             System.out.println(e.getMessage());
-            System.out.print("INTRODUCE DE NUEVO LOS DATOS (s/n) --->");
+            System.out.print("INTRODUCE DE NUEVO EL DATO (s/n) --->");
             String esperamosEntradaCorrecta=sc.nextLine();
             while (!("n".equals(esperamosEntradaCorrecta) || "s".equals(esperamosEntradaCorrecta))){
                 System.out.println(e.getMessage());
-                System.out.print("INTRODUCE DE NUEVO LOS DATOS (s/n) --->");
+                System.out.print("INTRODUCE DE NUEVO EL DATO (s/n) --->");
                 esperamosEntradaCorrecta=sc.nextLine();
             }
             return !"n".equals(esperamosEntradaCorrecta);

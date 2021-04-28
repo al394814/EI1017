@@ -35,5 +35,5 @@ class ProyectoTest {
         proyecto.EncontramosDniEnLasPersonasDelProyecto(dni);
         assertEquals(proyecto.EncontramosDniEnLasPersonasDelProyecto(dni), p);
     }
-    // En el proyecto no se pueden dar de baja personas
+    // En el p1 no se pueden dar de baja personas
 }
