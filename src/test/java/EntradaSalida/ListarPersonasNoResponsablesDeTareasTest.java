@@ -1,3 +1,4 @@
+/*
 package EntradaSalida;
 
 import Proyecto.Personas.Persona;
@@ -6,7 +7,7 @@ import Proyecto.Tareas.Fecha;
 import Proyecto.Tareas.Resultado.Resultado;
 import Proyecto.Tareas.Tarea;
 import org.junit.jupiter.api.Test;
-import EntradaSalida.MétodosAuxiliares.AnyadoListaObjetosCumplenCondicion;
+
 
 import java.util.LinkedList;
 import java.util.List;
@@ -40,4 +41,4 @@ class ListarPersonasNoResponsablesDeTareasTest {
         }
 
     }
-}
+}*/

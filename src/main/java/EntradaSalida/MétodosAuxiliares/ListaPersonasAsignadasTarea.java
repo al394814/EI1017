@@ -1,5 +1,7 @@
 package EntradaSalida.MétodosAuxiliares;
 
+import EntradaSalida.Excepciones.NoIntroduzcaDosVecesLaMismaPersonaException;
+import EntradaSalida.Excepciones.PersonaNoSeEncuentraEnProyectoException;
 import Proyecto.Personas.Persona;
 import Proyecto.Proyecto;
 
@@ -21,10 +23,35 @@ public class ListaPersonasAsignadasTarea {
             System.out.print("INTRODUZCA EL DNI DE LA PERSONA "+contadorPersonas+" ---> ");
             contadorPersonas++;
             String dni = sc.nextLine();
-            if (proyecto.EncontramosDniEnLasPersonasDelProyecto(dni))
-                listaPersonasAsiganadasTarea.add(proyecto.devuelvoPersonaConEsteDni(dni));
-            else
-                System.out.println("NO EXISTE DENTRO DEL PROYECTO UNA PERSONA CON ESTE DNI\n");
+            try{
+                if (!proyecto.EncontramosDniEnLasPersonasDelProyecto(dni))
+                    throw new PersonaNoSeEncuentraEnProyectoException();
+            }
+            catch (PersonaNoSeEncuentraEnProyectoException e){
+                System.out.print(e.getMessage());
+                while (true){
+                    System.out.print("INTRODUCE UN DNI CORRECTO ---> ");
+                    dni=sc.nextLine();
+                    if (proyecto.EncontramosDniEnLasPersonasDelProyecto(dni)){
+                        break;
+                    }
+                }
+            }
+            try{
+                if (listaPersonasAsiganadasTarea.contains(proyecto.devuelvoPersonaConEsteDni(dni)))
+                    throw new NoIntroduzcaDosVecesLaMismaPersonaException();
+            }
+            catch (NoIntroduzcaDosVecesLaMismaPersonaException e){
+                System.out.print(e.getMessage());
+                while(true){
+                    System.out.print("INTRODUCE UN DNI CORRECTO ---> ");
+                    dni = sc.nextLine();
+                    if (!listaPersonasAsiganadasTarea.contains(proyecto.devuelvoPersonaConEsteDni(dni)) &&proyecto.EncontramosDniEnLasPersonasDelProyecto(dni)){
+                        break;
+                    }
+                }
+            }
+            listaPersonasAsiganadasTarea.add(proyecto.devuelvoPersonaConEsteDni(dni));
 
             quedanPersonasPorIntroducir=deseaIntroducirMásDatos("PERSONAS",sc);
         }

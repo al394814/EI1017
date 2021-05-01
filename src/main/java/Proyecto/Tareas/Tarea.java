@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Tarea extends Persona implements TieneLista, TieneClave, Serializable {
+public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializable {
 
     String título;
     String descripción;
@@ -87,7 +87,7 @@ public class Tarea extends Persona implements TieneLista, TieneClave, Serializab
         return personas;
     }
 
-    public Object getClave() {
+    public String getClave() {
         return getTítulo();
     }
 }

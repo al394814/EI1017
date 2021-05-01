@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Persona implements TieneLista, TieneClave, Serializable {
+public class Persona implements TieneLista<Tarea>, TieneClave<String>, Serializable {
 
     String nombre;
     String dni;
@@ -77,7 +77,7 @@ public class Persona implements TieneLista, TieneClave, Serializable {
         return listaTareas;
     }
 
-    public Object getClave() {
+    public String getClave() {
         return getDni();
     }
 }

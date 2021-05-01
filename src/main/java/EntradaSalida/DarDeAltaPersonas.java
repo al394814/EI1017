@@ -4,7 +4,6 @@ import EntradaSalida.Excepciones.DarDeAltaPersonaException;
 import EntradaSalida.MétodosAuxiliares.UtilidadesParaListas;
 import Proyecto.Proyecto;
 
-import java.io.Serializable;
 import java.util.Scanner;
 
 import static Proyecto.Personas.Persona.*;
@@ -20,14 +19,13 @@ public class DarDeAltaPersonas {
 
         while(quedanPersonaPorIntroducir){
 
+            System.out.print("1-NOMBRE ---> ");
+            String nombre = sc.nextLine();
+            System.out.print("2-DNI ---> ");
+            String dni = sc.nextLine();
+            System.out.print("3-CORREO ELECTRÓNICO ---> ");
+            String correoElectrónico = sc.nextLine();
             try {
-
-                System.out.print("1-NOMBRE ---> ");
-                String nombre = sc.nextLine();
-                System.out.print("2-DNI ---> ");
-                String dni = sc.nextLine();
-                System.out.print("3-CORREO ELECTRÓNICO ---> ");
-                String correoElectrónico = sc.nextLine();
                 if (UtilidadesParaListas.objetoEstaEnListaObjetos(dni,proyecto.getPersona())) {
                     proyecto.añadirPersonaProyecto(creoPersona(nombre, dni, correoElectrónico));
                     quedanPersonaPorIntroducir = deseaIntroducirMásDatos("PERSONAS", sc);
