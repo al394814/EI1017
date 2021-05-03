@@ -15,7 +15,11 @@ public class ListaPersonasAsignadasTarea {
     public static LinkedList<Persona> listaPersonasAsignadasTarea(Scanner sc, Proyecto proyecto) {
 
         System.out.print("\nINTRODUCE EL DNI DE CADA PERSONA ASIGNADA A ESTA TAREA\n");
+        System.out.print("INTRODUCE q SI NO QUIERE ASIGNAR PERSONAS A LA TAREA");
+        String entrada = sc.nextLine();
         LinkedList<Persona> listaPersonasAsiganadasTarea = new LinkedList<Persona>();
+        if ("q".equals(entrada))
+            return listaPersonasAsiganadasTarea;
         boolean quedanPersonasPorIntroducir = true;
         int contadorPersonas = 1;
         while (quedanPersonasPorIntroducir){

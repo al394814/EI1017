@@ -67,8 +67,14 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
 
     @Override
     public String toString() {
+        String nombre;
+        if (this.responsable==null)
+            nombre="";
+        else
+            nombre=this.responsable.getNombre();
+
         return  "\ntítulo ---> '" + this.título + '\'' +
-                "\nresponsable de la tarea ---> " + this.responsable.getNombre() + ""+
+                "\nresponsable de la tarea ---> " + nombre + ""+
                 "\npersonas asignadas a la tarea ---> " + this.imprimirPorPantallaPersonasDeLaTarea() +
                 "\nestado de la tarea ---> " + this.atributosFecha.imprimirEstadoTarea() +
                 "\nResultadoTarea ---> " + this.ResultadoTarea +

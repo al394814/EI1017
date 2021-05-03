@@ -48,27 +48,31 @@ public class DarDeAltaTareas  {
             System.out.print("\nDESCRIPCIÓN ---> ");
             String descripción = sc.nextLine();
             LinkedList<Persona> listaPersonasAsignadasTarea = listaPersonasAsignadasTarea(sc, proyecto);
-            System.out.print("\nINTRODUCE EL RESPONSABLE DE LA TAREA(ESTA PERSONA DEBE ESTAR ENTRE LAS PERSONA ASIGNADAS A LA TAREA) ---> ");
-            String dniResponsable = sc.nextLine();
-            try {
-                if (!listaPersonasAsignadasTarea.contains(proyecto.devuelvoPersonaConEsteDni(dniResponsable))) {
-                    throw new PersonaResponsableNoEstaEnListaException();
+            if (listaPersonasAsignadasTarea.isEmpty())
+                personaResponsable=null;
+            else {
+                System.out.print("\nINTRODUCE EL RESPONSABLE DE LA TAREA(ESTA PERSONA DEBE ESTAR ENTRE LAS PERSONA ASIGNADAS A LA TAREA) ---> ");
+                String dniResponsable = sc.nextLine();
+
+                try {
+                    if (!listaPersonasAsignadasTarea.contains(proyecto.devuelvoPersonaConEsteDni(dniResponsable))) {
+                        throw new PersonaResponsableNoEstaEnListaException();
+                    }
+                } catch (PersonaResponsableNoEstaEnListaException e) {
+                    System.out.println(e.getMessage());
+                    while (true) {
+                        System.out.print("INTRODUZCA UN DNI VÁLIDO --->");
+                        String nuevoDNIresponsable = sc.nextLine();
+                        if (listaPersonasAsignadasTarea.contains(proyecto.devuelvoPersonaConEsteDni(nuevoDNIresponsable))) {
+                            dniResponsable = nuevoDNIresponsable;
+                            System.out.println("ESTE DNI ES VÁLIDO\n");
+                            break;
+                        } else
+                            System.out.println(e.getMessage());
+                    }
                 }
+                personaResponsable = proyecto.devuelvoPersonaConEsteDni(dniResponsable);
             }
-            catch (PersonaResponsableNoEstaEnListaException e) {
-                System.out.println(e.getMessage());
-                while (true) {
-                    System.out.print("INTRODUZCA UN DNI VÁLIDO --->");
-                    String nuevoDNIresponsable = sc.nextLine();
-                    if (listaPersonasAsignadasTarea.contains(proyecto.devuelvoPersonaConEsteDni(nuevoDNIresponsable))) {
-                        dniResponsable=nuevoDNIresponsable;
-                        System.out.println("ESTE DNI ES VÁLIDO\n");
-                        break;
-                    } else
-                        System.out.println(e.getMessage());
-                }
-            }
-            personaResponsable=proyecto.devuelvoPersonaConEsteDni(dniResponsable);
             System.out.print("\nINDICA LA PRIORIDAD DE LA TAREA, PUNTUANDOLA DEL 1(MUY BAJA) AL 5(MUY ALTA) ---> ");
             int prioridad = sc.nextInt();
             sc.nextLine();
@@ -87,7 +91,7 @@ public class DarDeAltaTareas  {
             //Falta tratar los resultados de la tarea.
 
             System.out.print("\nINTRODUCE EL COSTE DE LA TAREA ---> ");
-            int coste = sc.nextInt();
+            double coste = sc.nextDouble();
             sc.nextLine();
             System.out.print("\n1.-consumo intero\n2.-descuento\n3.-urgente");
             System.out.print("\nINTRODUCE EL TIPO DE FACTURACION ---> ");
@@ -114,9 +118,10 @@ public class DarDeAltaTareas  {
             facturacion.getCalculoFacturacion(coste);
 
 
-
             proyecto.añadirTareaProyecto(Tarea.añadirTareaProyecto(título, descripción, listaPersonasAsignadasTarea, personaResponsable, prioridad, atributosFecha, null, etiquetas,coste,facturacion));
+            if (!(personaResponsable ==null)){
             personaResponsable.añadirTareas(proyecto.devuelvoTareaConEsteTítulo(título));
+            }
             quedanTareasPorIntroducir = deseaIntroducirMásDatos("TAREAS", sc);
             System.out.println("\nLA TAREA HA FINALIZADO CON ÉXITO.");
         }
