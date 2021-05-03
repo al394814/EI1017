@@ -3,6 +3,7 @@ package Proyecto.Tareas;
 import EntradaSalida.TieneClave;
 import EntradaSalida.TieneLista;
 import Proyecto.Personas.Persona;
+import Proyecto.Tareas.Facturaciones.Facturacion;
 import Proyecto.Tareas.Resultado.Resultado;
 
 import java.io.Serializable;
@@ -19,10 +20,14 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
     Fecha atributosFecha;
     Resultado ResultadoTarea;
     LinkedList<String> etiquetas;
+    double coste;
+    Facturacion facturacion;
+    double dineroFacturado;
 
 
 
-    public Tarea(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado ResultadosTarea, LinkedList<String> etiquetas) {
+
+    public Tarea(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado ResultadosTarea, LinkedList<String> etiquetas, double coste, Facturacion facturacion) {
         this.título = titulos;
         this.descripción = descripción;
         this.personas = personas;
@@ -31,6 +36,8 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
         this.atributosFecha = atributosFecha;
         this.ResultadoTarea = ResultadosTarea;
         this.etiquetas = etiquetas;
+        this.coste=coste;
+        this.facturacion = facturacion;
 
     }
 
@@ -41,9 +48,11 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
     public Fecha getAtributosFecha() {
         return atributosFecha;
     }
-
-    public static Tarea añadirTareaProyecto(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado resultadosTarea, LinkedList<String> etiquetas){
-        return new Tarea(titulos,descripción,personas,responsable,prioridad,atributosFecha,resultadosTarea,etiquetas);
+    public void setCoste(double coste) {
+        this.coste = coste;
+    }
+    public static Tarea añadirTareaProyecto(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado resultadosTarea, LinkedList<String> etiquetas,double coste,Facturacion facturacion){
+        return new Tarea(titulos,descripción,personas,responsable,prioridad,atributosFecha,resultadosTarea,etiquetas,coste,facturacion);
     }
 
     public void addPersonasTarea(Persona persona) {
@@ -62,7 +71,9 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
                 "\nresponsable de la tarea ---> " + this.responsable.getNombre() + ""+
                 "\npersonas asignadas a la tarea ---> " + this.imprimirPorPantallaPersonasDeLaTarea() +
                 "\nestado de la tarea ---> " + this.atributosFecha.imprimirEstadoTarea() +
-                "\nResultadoTarea ---> " + this.ResultadoTarea ;
+                "\nResultadoTarea ---> " + this.ResultadoTarea +
+                "\nCosteTarea ---> " + this.coste +"€"+
+                "\nFacturación ---> " + this.facturacion.getCalculoFacturacion(coste)+"€";
     }
 
     public String imprimirPorPantallaPersonasDeLaTarea(){
@@ -80,7 +91,7 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
 
     public void finalizarTarea(){
         this.getAtributosFecha().Finalizar();
-}
+    }
 
 
     public List getLista() {
@@ -90,4 +101,9 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
     public String getClave() {
         return getTítulo();
     }
+
+    public void setFacturacion(Facturacion facturacion) {
+        this.facturacion = facturacion;
+    }
+
 }

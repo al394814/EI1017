@@ -5,6 +5,10 @@ import EntradaSalida.Excepciones.PersonaResponsableNoEstaEnListaException;
 import EntradaSalida.MétodosAuxiliares.UtilidadesParaListas;
 import Proyecto.Personas.Persona;
 import Proyecto.Proyecto;
+import Proyecto.Tareas.Facturaciones.ConsumoInterno;
+import Proyecto.Tareas.Facturaciones.Descuento;
+import Proyecto.Tareas.Facturaciones.Facturacion;
+import Proyecto.Tareas.Facturaciones.Urgente;
 import Proyecto.Tareas.Fecha;
 import Proyecto.Tareas.Tarea;
 
@@ -82,7 +86,36 @@ public class DarDeAltaTareas  {
 
             //Falta tratar los resultados de la tarea.
 
-            proyecto.añadirTareaProyecto(Tarea.añadirTareaProyecto(título, descripción, listaPersonasAsignadasTarea, personaResponsable, prioridad, atributosFecha, null, etiquetas));
+            System.out.print("\nINTRODUCE EL COSTE DE LA TAREA ---> ");
+            int coste = sc.nextInt();
+            sc.nextLine();
+            System.out.print("\n1.-consumo intero\n2.-descuento\n3.-urgente");
+            System.out.print("\nINTRODUCE EL TIPO DE FACTURACION ---> ");
+            int tipoFacturacion= sc.nextInt();
+
+            while (tipoFacturacion<0 && tipoFacturacion>4) {
+                System.out.print("DATO INCORRECTO, SIGA LAS INDICACIONES");
+                tipoFacturacion = sc.nextInt();
+            }
+
+            sc.nextLine();
+            Facturacion facturacion=null;
+            switch (tipoFacturacion){
+                case 1:
+                    facturacion =new Facturacion(new ConsumoInterno());
+                    break;
+                case 2:
+                    facturacion = new Facturacion(new Descuento());
+                    break;
+                case 3:
+                    facturacion = new Facturacion(new Urgente());
+                    break;
+            }
+            facturacion.getCalculoFacturacion(coste);
+
+
+
+            proyecto.añadirTareaProyecto(Tarea.añadirTareaProyecto(título, descripción, listaPersonasAsignadasTarea, personaResponsable, prioridad, atributosFecha, null, etiquetas,coste,facturacion));
             personaResponsable.añadirTareas(proyecto.devuelvoTareaConEsteTítulo(título));
             quedanTareasPorIntroducir = deseaIntroducirMásDatos("TAREAS", sc);
             System.out.println("\nLA TAREA HA FINALIZADO CON ÉXITO.");

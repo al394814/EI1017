@@ -56,6 +56,9 @@ public class MenuPrograma {
                     case LISTAR_PERSONAS_NO_RESPONSABLES_DE_TAREAS:
                         ListarPersonasNoResponsablesDeTareas.listarPersonasNoResponsablesDeTareas(proyecto);
                         break;
+                    case CAMBIAR_COSTE_TAREA:
+                        CambiarCosteTarea.cambiarCosteTarea(proyecto,scanner);
+                        break;
                     case SALIR:
                         respuesta = false;
                         break;

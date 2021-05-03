@@ -1,3 +1,4 @@
+/*
 package Proyecto.Tareas;
 
 import Proyecto.Personas.Persona;
@@ -25,4 +26,4 @@ class TareaTest {
         assertEquals(true, res  );
 
     }
-}
+}*/
