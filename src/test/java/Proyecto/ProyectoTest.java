@@ -33,7 +33,7 @@ class ProyectoTest {
         Persona p = new Persona("paco", dni, "fsef");
         proyecto.añadirPersonaProyecto(p);
         proyecto.EncontramosDniEnLasPersonasDelProyecto(dni);
-        assertEquals(proyecto.EncontramosDniEnLasPersonasDelProyecto(dni), p);
+        assertEquals(proyecto.devuelvoPersonaConEsteDni(dni), p);
     }
     // En el p1 no se pueden dar de baja personas
 }

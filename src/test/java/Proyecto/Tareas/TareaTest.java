@@ -1,7 +1,9 @@
-/*
+
 package Proyecto.Tareas;
 
 import Proyecto.Personas.Persona;
+import Proyecto.Tareas.Facturaciones.ConsumoInterno;
+import Proyecto.Tareas.Facturaciones.Facturacion;
 import Proyecto.Tareas.Resultado.Resultado;
 import org.junit.jupiter.api.Test;
 
@@ -20,10 +22,10 @@ class TareaTest {
         Resultado r = new Resultado();
         Persona p = new Persona();
         LinkedList<String> s = new LinkedList<String>();
-        Tarea t = new Tarea("t","d", l,p,1,f,r,s);
+        Facturacion fac =new Facturacion(new ConsumoInterno());
+        Tarea t = new Tarea("t","d", l,p,1,f,r,s,3.3, fac);
         t.finalizarTarea();
         boolean res = t.EstadoTarea();
         assertEquals(true, res  );
-
     }
-}*/
+}

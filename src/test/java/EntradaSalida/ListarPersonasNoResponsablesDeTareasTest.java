@@ -1,8 +1,12 @@
-/*
+
 package EntradaSalida;
 
+import EntradaSalida.MétodosAuxiliares.UtilidadesParaListas;
 import Proyecto.Personas.Persona;
 import Proyecto.Proyecto;
+import Proyecto.Tareas.Facturaciones.CalculoFacturacion;
+import Proyecto.Tareas.Facturaciones.ConsumoInterno;
+import Proyecto.Tareas.Facturaciones.Facturacion;
 import Proyecto.Tareas.Fecha;
 import Proyecto.Tareas.Resultado.Resultado;
 import Proyecto.Tareas.Tarea;
@@ -23,22 +27,22 @@ class ListarPersonasNoResponsablesDeTareasTest {
             LinkedList<Persona> l = new LinkedList<Persona>();
             Resultado r = new Resultado();
             LinkedList<String> s = new LinkedList<String>();
+            Facturacion fac =new Facturacion(new ConsumoInterno());
             Proyecto proyecto = new Proyecto();
             Persona persona = new Persona("Alex", String.valueOf(i), "alex@gmail.com");
             Persona persona2 = new Persona("Marcos", String.valueOf(i + 1), "marcos@gmail.com");
             Persona persona3 = new Persona("Carlos", String.valueOf(i + 2), "carlos@gmail.com");
-            Tarea t = new Tarea("t", "d", l, persona, 1, f, r, s);
+            Tarea t = new Tarea("t", "d", l, persona, 1, f, r, s, 3.3, fac);
             persona.añadirTareas(t);
             proyecto.añadirPersonaProyecto(persona);
             proyecto.añadirPersonaProyecto(persona2);
             proyecto.añadirPersonaProyecto(persona3);
             List<Persona> res;
-            res = AnyadoListaObjetosCumplenCondicion.anyadoListaObjetosCumplenCondición(proyecto.getPersona());
+            res = UtilidadesParaListas.elementosConListaVacia(proyecto.getPersona());
             List<Persona> res2 = new LinkedList<Persona>();
             res2.add(persona2);
             res2.add(persona3);
             assertEquals(res2, res);
         }
-
     }
-}*/
+}
