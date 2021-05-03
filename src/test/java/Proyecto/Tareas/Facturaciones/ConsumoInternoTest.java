@@ -8,8 +8,8 @@ class ConsumoInternoTest {
 
     @Test
     void devuelvoFacturacion() {
-
-
-
+        CalculoFacturacion calculoFacturacion = new ConsumoInterno();
+        int coste = 200;
+        assertEquals(coste,calculoFacturacion.DevuelvoFacturacion(200));
     }
 }

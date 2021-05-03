@@ -8,5 +8,8 @@ class FacturacionTest {
 
     @Test
     void getCalculoFacturacion() {
+        CalculoFacturacion calculoFacturacion = new ConsumoInterno();
+        Facturacion facturacion =  new Facturacion(calculoFacturacion);
+        assertEquals(100,facturacion.getCalculoFacturacion(100));
     }
 }
