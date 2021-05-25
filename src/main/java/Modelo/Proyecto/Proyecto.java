@@ -10,6 +10,7 @@ import Modelo.Proyecto.Tareas.Facturaciones.Facturacion;
 import Modelo.Proyecto.Tareas.Fecha;
 import Modelo.Proyecto.Tareas.Resultado.Resultado;
 import Modelo.Proyecto.Tareas.Tarea;
+import Vista.Vista;
 
 import java.io.*;
 import java.util.LinkedList;
@@ -20,6 +21,7 @@ public class Proyecto implements Serializable, InterfaceModelo {
     private String nombre;
     private List<Persona> personas;
     private List<Tarea> tareas;
+    private Vista vista;
 
 
     public Proyecto(){
@@ -104,8 +106,9 @@ public class Proyecto implements Serializable, InterfaceModelo {
     }
 
 
-
-
+    public void setVista(Vista vista) {
+        this.vista=vista;
+    }
 }
 
 

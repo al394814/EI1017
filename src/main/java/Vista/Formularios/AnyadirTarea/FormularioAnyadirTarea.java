@@ -1,4 +1,4 @@
-package Vista.Formularios;
+package Vista.Formularios.AnyadirTarea;
 
 import Vista.Vista;
 
