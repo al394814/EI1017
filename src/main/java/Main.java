@@ -1,16 +1,19 @@
-import EntradaSalida.IniciarNuevoProyecto;
-import Proyecto.Proyecto;
+import Controlador.Controlador;
+import Modelo.Proyecto.Proyecto;
+import Vista.Vista;
 
-import java.io.*;
-
-import static Interfaz.MenuPrograma.MenúPrograma;
+import java.awt.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args){
+        Proyecto modelo = new Proyecto();
+        Controlador controlador = new Controlador();
+        Vista vista = new Vista();
 
-        System.out.println("\nVAS A INICIAR UN PROYECTO\n");
-        MenúPrograma(IniciarNuevoProyecto.iniciarNuevoProyecto());
+        vista.setControlador(controlador);
+        vista.setModelo(modelo);
 
+        vista.run();
     }
 }

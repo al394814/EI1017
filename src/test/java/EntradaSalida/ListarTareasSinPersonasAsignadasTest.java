@@ -1,14 +1,15 @@
+/*
 
 package EntradaSalida;
 
-import EntradaSalida.MétodosAuxiliares.UtilidadesParaListas;
-import Proyecto.Personas.Persona;
-import Proyecto.Proyecto;
-import Proyecto.Tareas.Facturaciones.ConsumoInterno;
-import Proyecto.Tareas.Facturaciones.Facturacion;
-import Proyecto.Tareas.Fecha;
-import Proyecto.Tareas.Resultado.Resultado;
-import Proyecto.Tareas.Tarea;
+import Modelo.Metodos.UtilidadesParaListas;
+import Modelo.Proyecto.Personas.Persona;
+import Modelo.Proyecto.Proyecto;
+import Modelo.Proyecto.Tareas.Facturaciones.ConsumoInterno;
+import Modelo.Proyecto.Tareas.Facturaciones.Facturacion;
+import Modelo.Proyecto.Tareas.Fecha;
+import Modelo.Proyecto.Tareas.Resultado.Resultado;
+import Modelo.Proyecto.Tareas.Tarea;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
@@ -45,3 +46,4 @@ class ListarTareasSinPersonasAsignadasTest {
         }
     }
 }
+*/
