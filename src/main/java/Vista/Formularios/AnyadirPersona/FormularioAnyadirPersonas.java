@@ -2,6 +2,7 @@ package Vista.Formularios.AnyadirPersona;
 
 import Controlador.Controlador;
 import Modelo.Excepciones.DarDeAltaPersonaException;
+import Vista.Paneles.PanelPersonas;
 import Vista.TratamientoErrores;
 
 import javax.swing.*;

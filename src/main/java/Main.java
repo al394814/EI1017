@@ -22,7 +22,6 @@ public class Main {
         vista.setModelo(modelo);
 
         modelo.setVista(vista);
-
         vista.run();
 
     }

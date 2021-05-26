@@ -38,6 +38,8 @@ public class PanelPersonas extends JPanel {
 
         JButton bGuardar = new JButton("Guardar");
 
+        JButton bActualizar = new JButton("Actualizar");
+
 
         JLabel jDNI = new JLabel("DNI del cliente: ");
         dniPersona = new JTextField(10);
@@ -78,6 +80,14 @@ public class PanelPersonas extends JPanel {
             }
         });
 
+       bActualizar.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent e) {
+               String datos = modelo.informacionPersona(modelo.getPersona());
+               rellenarInformacion(datos);
+
+           }
+       });
+
        bGuardar.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                try {
@@ -100,6 +110,7 @@ public class PanelPersonas extends JPanel {
         panelOption.add(bBuscarPersona);
         panelOption.add(bInsetarPersona);
         panelOption.add(bListarPersonasSinTarea);
+        panelOption.add(bActualizar);
         panelOption.add(bGuardar);
 
         contenedor.add(panelOption);
@@ -133,6 +144,7 @@ public class PanelPersonas extends JPanel {
     }
 
 
-
-
+    public void actualizar(){
+        String datos = modelo.informacionPersona(modelo.getPersona());
+        rellenarInformacion(datos);     }
 }

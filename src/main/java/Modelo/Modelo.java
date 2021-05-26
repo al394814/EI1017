@@ -7,6 +7,7 @@ import Modelo.Metodos.UtilidadesParaListas;
 import Modelo.Proyecto.Personas.Persona;
 import Modelo.Proyecto.Proyecto;
 import Modelo.Proyecto.Tareas.Tarea;
+import Vista.Paneles.PanelPersonas;
 import Vista.Vista;
 
 import java.io.FileOutputStream;
@@ -18,6 +19,7 @@ import java.util.List;
 public class Modelo implements InterfaceModelo {
 
     Vista vista = new Vista();
+
     Proyecto proyecto = new Proyecto();
 
     public Persona devuelvePersona(String dni) {
@@ -32,10 +34,13 @@ public class Modelo implements InterfaceModelo {
         this.vista = vista;
     }
 
+
+
     @Override
     public void setProyecto(Proyecto proyecto) {
         this.proyecto = proyecto;
     }
+
 
     public void insertarPersona(String nombre, String dni, String correo) throws DarDeAltaPersonaException {
         proyecto.añadirPersonaProyecto(nombre, dni, correo);

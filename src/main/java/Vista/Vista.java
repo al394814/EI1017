@@ -64,6 +64,9 @@ public class Vista implements InterfaceVista{
 
     }
 
+
+
+
    /* public void guardarProyecto(String nombre) throws IOException {
         FileOutputStream fos = new FileOutputStream(nombre+".bin");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
