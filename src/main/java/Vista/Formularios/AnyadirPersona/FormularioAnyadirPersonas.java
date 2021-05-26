@@ -1,7 +1,8 @@
-package Vista.Formularios.AnyadirTarea;
+package Vista.Formularios.AnyadirPersona;
 
 import Controlador.Controlador;
 import Modelo.Excepciones.DarDeAltaPersonaException;
+import Vista.TratamientoErrores;
 
 import javax.swing.*;
 import java.awt.*;
@@ -75,5 +76,9 @@ public class FormularioAnyadirPersonas {
             System.out.print("Añadiendo");
             controlador.insertarPersona(nombre.getText(), dni.getText(), correo.getText());
         }
+        else{
+                new TratamientoErrores("Faltan campos por rellenar");
+        }
     }
+
 }

@@ -3,24 +3,17 @@ package Vista;
 import javax.swing.*;
 import java.awt.*;
 
-public class TratamientoErrores extends JDialog {
+public class TratamientoErrores {
 
         private String info;
 
-        public TratamientoErrores(String info, JFrame padre, boolean bloqueante) {
-            //super(padre, bloqueante);
-            this.info = info;
-            if (bloqueante) {
-                JLabel text = new JLabel(info);
-                JPanel panel = new JPanel();
-                panel.add(text);
+        public TratamientoErrores(String info) {
 
-                add(panel, BorderLayout.CENTER);
-                setBounds(750, 400, 250, 100);
-                Image icono = Toolkit.getDefaultToolkit().getImage("src/imagenes/cancel.png");
-                setTitle("ERROR");
-                setIconImage(icono);
-                setVisible(true);
+            JFrame formulario2 = new JFrame("Error");
+            Container contenedor2 = formulario2.getContentPane();
+            contenedor2.add(new JLabel(info));
+            formulario2.pack();
+            formulario2.setVisible(true);
             }
-        }
 }
+

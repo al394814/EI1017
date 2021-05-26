@@ -1,17 +1,19 @@
 package Modelo.Metodos;
 
+import Modelo.Proyecto.Personas.Persona;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class UtilidadesParaListas<T> {
 
-    public static <T extends TieneLista<E>,E> List<T> elementosConListaVacia(List<T> listaObjeto){
+    public static <T extends TieneLista<E>,E> LinkedList<T> elementosConListaVacia(List<Persona> listaObjeto){
 
-        List<T> listaResultado = new LinkedList<T>();
+        LinkedList<T> listaResultado = new LinkedList<T>();
 
-        for (T objeto: listaObjeto)
+        for (Persona objeto: listaObjeto)
             if (objeto.getLista().isEmpty())
-                listaResultado.add(objeto);
+                listaResultado.add((T) objeto);
 
         return listaResultado;
     }

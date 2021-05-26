@@ -3,16 +3,19 @@ package Vista.Paneles;
 import Controlador.Controlador;
 import Modelo.Modelo;
 import Modelo.Proyecto.Personas.Persona;
-import Vista.Formularios.AnyadirPersona.FormularioAnyadirPersona;
-import Vista.Formularios.AnyadirTarea.FormularioAnyadirPersonas;
+import Vista.Formularios.AnyadirPersona.FormularioAnyadirPersonas;
 import Vista.Formularios.FormularioBuscarPersona;
-import Vista.Vista;
+import Vista.Formularios.FormularioListarPersonaSinTarea;
+import Vista.TratamientoErrores;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 public class PanelPersonas extends JPanel {
     private Controlador controlador;
@@ -21,7 +24,7 @@ public class PanelPersonas extends JPanel {
     private JTextField dniPersona;
     private JFrame vista;
 
-    public PanelPersonas(Controlador controlador, Modelo modelo, JFrame vista) {
+    public PanelPersonas(Controlador controlador, Modelo modelo, JFrame vista,String nombreProyecto) {
 
 
         this.controlador = controlador;
@@ -33,39 +36,57 @@ public class PanelPersonas extends JPanel {
 
         JButton bListarPersonasSinTarea = new JButton("Listar Persona sin Tarea");
 
+        JButton bGuardar = new JButton("Guardar");
+
+
         JLabel jDNI = new JLabel("DNI del cliente: ");
         dniPersona = new JTextField(10);
 
-        //String datos = modelo.informacionClientes(modelo.getClientes());
+        String datos = modelo.informacionPersona(modelo.getPersona());
 
         JScrollPane panel = new JScrollPane(areaDatosPersona);
         panel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         panel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        //rellenarInformacion(datos);
+        rellenarInformacion(datos);
 
 
       bBuscarPersona.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                if (dniPersona.getText().length()  == 0){
+                    new TratamientoErrores("  No hay escrito ningun dni  ");
+                }
+                else{
                 buscarPersona(dniPersona.getText());
+                }
             }
         });
 
         bInsetarPersona.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
                 new FormularioAnyadirPersonas(controlador);
             }
         });
 
 
 
-       /*+bListarPersonasSinTarea.addActionListener(new ActionListener() {
+       bListarPersonasSinTarea.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new FormularioListarPersonasSinTarea(controlador);
+
+                new FormularioListarPersonaSinTarea(controlador);
 
             }
-        });*/
+        });
+
+       bGuardar.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent e) {
+               try {
+                   guardarProyecto();
+               } catch (IOException ioException) {
+                   ioException.printStackTrace();
+               }
+           }
+       });
 
         JPanel panelDNI = new JPanel();
         panelDNI.add(jDNI);
@@ -79,6 +100,7 @@ public class PanelPersonas extends JPanel {
         panelOption.add(bBuscarPersona);
         panelOption.add(bInsetarPersona);
         panelOption.add(bListarPersonasSinTarea);
+        panelOption.add(bGuardar);
 
         contenedor.add(panelOption);
         contenedor.add(panel);
@@ -88,17 +110,19 @@ public class PanelPersonas extends JPanel {
         areaDatosPersona.setEditable(false);
 
     }
-      /*  public void buscarPersona() {
-        if (!dniIsEmpty()){
-            if controlador.
-        }
-
-        }*/
+      public void guardarProyecto() throws IOException {
+          controlador.guardarProyecto();
+      }
 
 
     public boolean dniIsEmpty() {
         return (dniPersona.getText().length() <= 0);
-}
+    }
+
+    public void rellenarInformacion(String datos){
+        areaDatosPersona.setText("");
+        areaDatosPersona.append(datos);
+    }
 
 
 

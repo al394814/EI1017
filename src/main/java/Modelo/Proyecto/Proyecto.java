@@ -105,8 +105,19 @@ public class Proyecto implements Serializable {
     }
 
 
+
     public void setVista(Vista vista) {
         this.vista=vista;
+    }
+
+    public static LinkedList<Persona> buscarPersonasSinTarea(List<Persona> p){
+        LinkedList<Persona> l = null;
+        for (Persona persona : p ){
+            if (persona.getListaTareas() == null){
+                l.add(persona);
+            }
+        }
+        return l;
     }
 }
 

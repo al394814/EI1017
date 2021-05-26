@@ -25,7 +25,7 @@ public class Vista2 extends Vista
        // ventana.setIconImage(icono); //Añadimos la IMAGE creada
         JTabbedPane pestanyas = new JTabbedPane();
         vistaTareas = new PanelTareas(controlador, modelo, ventana);
-        vistaPersonas = new PanelPersonas(controlador, modelo, ventana);
+        vistaPersonas = new PanelPersonas(controlador, modelo, ventana, nombre);
         pestanyas.add("Personas", vistaPersonas);
         pestanyas.add("Tareas", vistaTareas);
 

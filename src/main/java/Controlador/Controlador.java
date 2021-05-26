@@ -5,6 +5,10 @@ import Modelo.Modelo;
 import Modelo.Proyecto.Personas.Persona;
 import Vista.Vista;
 
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Controlador implements InterfaceControlador {
     private Modelo modelo;
     private Vista vista;
@@ -30,6 +34,13 @@ public class Controlador implements InterfaceControlador {
        return persona;
     }
 
+    public LinkedList<Persona> buscarPersonasSinTarea(){
+        LinkedList<Persona> lista = modelo.buscarPersonasSinTarea();
+            return lista;
+    }
 
 
+    public void guardarProyecto() throws IOException {
+        modelo.guardarProyecto();
+    }
 }
