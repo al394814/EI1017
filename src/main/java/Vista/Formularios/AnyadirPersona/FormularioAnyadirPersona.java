@@ -2,6 +2,7 @@ package Vista.Formularios.AnyadirPersona;
 
 import Controlador.Controlador;
 import Modelo.Proyecto.Proyecto;
+import Vista.TratamientoErrores;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,7 +44,6 @@ public class FormularioAnyadirPersona {
 
         bAñadir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new FormularioAnyadirPersona(controlador, proyecto);
                 anyadirCliente();
             }
         });
@@ -57,7 +57,11 @@ public class FormularioAnyadirPersona {
     }
 
     private void anyadirCliente(){
+        if (nombre.getText().length()>0 && dni.getText().length()>0 && correo.getText().length()>0){
+
+        }
+        else
+            new TratamientoErrores("COMPLETA TODOS LOS CAMPOS",formulario,true);
 
     }
-
 }

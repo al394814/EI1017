@@ -47,7 +47,6 @@ public class Proyecto implements Serializable, InterfaceModelo {
     }
 
     public static Proyecto creadorProyecto(String nombreProyecto) {
-
         Proyecto proyecto;
         proyecto = new Proyecto(nombreProyecto);
         try {
