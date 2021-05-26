@@ -16,7 +16,7 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Proyecto implements Serializable, InterfaceModelo {
+public class Proyecto implements Serializable {
 
     private String nombre;
     private List<Persona> personas;

@@ -1,5 +1,10 @@
 package Controlador;
 
+import Modelo.Modelo;
+import Vista.Vista;
+import Vista.Vista2;
+
 public interface InterfaceControlador {
-    //hay que pensar que ponemos aqui
+    void setVista(Vista vista);
+    void setModelo(Modelo modelo);
 }
