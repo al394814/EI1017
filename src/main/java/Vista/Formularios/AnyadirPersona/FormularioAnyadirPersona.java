@@ -18,7 +18,7 @@ public class FormularioAnyadirPersona {
     private Controlador controlador;
     private Proyecto proyecto;
 
-    public FormularioAnyadirPersona(Controlador controlador,Proyecto proyecto){
+    public FormularioAnyadirPersona(final Controlador controlador, final Proyecto proyecto){
         this.controlador=controlador;
         this.proyecto=proyecto;
         formulario = new JFrame("AÑADIR CLIENTES");
@@ -43,6 +43,7 @@ public class FormularioAnyadirPersona {
 
         bAñadir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                new FormularioAnyadirPersona(controlador, proyecto);
                 anyadirCliente();
             }
         });

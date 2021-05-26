@@ -35,6 +35,5 @@ public class Vista implements InterfaceVista{
         ventanaAcceso.pack();
         ventanaAcceso.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventanaAcceso.setVisible(true);
-        new FormularioAnyadirPersona(controlador,proyecto);
     }
 }
