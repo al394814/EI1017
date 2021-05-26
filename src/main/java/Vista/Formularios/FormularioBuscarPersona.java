@@ -41,7 +41,7 @@ public class FormularioBuscarPersona {
         contenedor.add(correo);
 
        contenedor.add(new JLabel("Tareas:"));
-       tarea.setText(persona.getCorreoElectrónico());
+       tarea.setText(persona.getDni());//Falta poner las tareas
        tarea.setEditable(false);
        contenedor.add(tarea);
 
