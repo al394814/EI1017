@@ -29,4 +29,7 @@ public class Controlador implements InterfaceControlador {
        Persona persona=  modelo.buscarPersona(dni);
        return persona;
     }
+
+
+
 }

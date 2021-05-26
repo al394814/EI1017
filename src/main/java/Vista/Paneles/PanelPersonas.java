@@ -30,7 +30,6 @@ public class PanelPersonas extends JPanel {
         JButton bBuscarPersona = new JButton("Buscar Persona");
 
         JButton bInsetarPersona = new JButton("Añadir Persona");
-        JButton bBorrarPersona = new JButton("Borrar Persona ");
 
         JButton bListarPersonasSinTarea = new JButton("Listar Persona sin Tarea");
 
@@ -59,15 +58,9 @@ public class PanelPersonas extends JPanel {
             }
         });
 
-        bBorrarPersona.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                borrarPersona();
-            }
 
-        });
 
-       /* bListarPersonasSinTarea.addActionListener(new ActionListener() {
+       /*+bListarPersonasSinTarea.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new FormularioListarPersonasSinTarea(controlador);
 
@@ -85,7 +78,6 @@ public class PanelPersonas extends JPanel {
         panelOption.add(panelDNI);
         panelOption.add(bBuscarPersona);
         panelOption.add(bInsetarPersona);
-        panelOption.add(bBorrarPersona);
         panelOption.add(bListarPersonasSinTarea);
 
         contenedor.add(panelOption);
@@ -108,7 +100,7 @@ public class PanelPersonas extends JPanel {
         return (dniPersona.getText().length() <= 0);
 }
 
-    public void borrarPersona()  { }
+
 
     public void buscarPersona(String dni){
         Persona persona = controlador.buscarPersona(dni);
