@@ -1,7 +1,6 @@
 package Vista.Formularios.AnyadirTarea;
 
 import Controlador.Controlador;
-import Modelo.Excepciones.DarDeAltaPersonaException;
 import Vista.Vista;
 
 import javax.swing.*;
@@ -11,85 +10,83 @@ import java.awt.event.ActionListener;
 
 public class FormularioAnyadirTarea {
 
-    private Controlador controlador;
-
     private JTextField titulo = new JTextField(20);
     private JTextField descripcion = new JTextField(20);
+    private JButton banyadirPersonas = new JButton("AÑADIR PERSONAS");
+    private ButtonGroup personasTarea = new ButtonGroup();
     private  JTextField prioridad = new JTextField(20);
-    private  JTextField identificador = new JTextField(20);
-    private  JTextField horasInvertidas = new JTextField(20);
-    private  JTextField Resultado = new JTextField(20);
-    private JTextField costeFacturación = new JTextField(20);
 
+    private JTextField diaIn = new JTextField(3);
+    private JTextField mesIn = new JTextField(3);
+    private JTextField anyIn = new JTextField(3);
+    private JTextField diaFi = new JTextField(3);
+    private JTextField mesFi = new JTextField(3);
+    private JTextField anyFi = new JTextField(3);
+    //TODO:pongo un boton introducir etiquetas que te lleve a lo que tu has programado
+    private JButton bEtiquetas = new JButton("AÑADIR ETIQUETAS");
+    private JTextField costeFacturación = new JTextField(20);
+    private JButton bCrearTarea = new JButton("CREAR TAREA");
 
     private JFrame formulario;
-    private JButton banyadirTareas = new JButton("AÑADIR TAREAS");
-    private ButtonGroup personasTarea = new ButtonGroup();
+    private Controlador controlador;
+
     public FormularioAnyadirTarea(Controlador controlador){
         this.controlador = controlador;
-        formulario = new JFrame("Añadir Cliente");
+        formulario = new JFrame("AÑADIR TAREA");
+        Image icono = Toolkit.getDefaultToolkit().getImage("src/imagenes/tarea.png");
+        formulario.setIconImage(icono);
+
         formulario.setLayout(new GridLayout(10, 2));
         Container contenedor = formulario.getContentPane();
 
 
-        JPanel panel = new JPanel();
 
+        JPanel fechaIn = new JPanel();
+        fechaIn.add(new JLabel("Dia"));
+        fechaIn.add(diaIn);
+        fechaIn.add(new JLabel("Mes"));
+        fechaIn.add(mesIn);
+        fechaIn.add(new JLabel("Año"));
+        fechaIn.add(anyIn);
 
-        contenedor.add(new JLabel("Titulo:"));
+        JPanel fechaFi = new JPanel();
+        fechaFi.add(new JLabel("Dia"));
+        fechaFi.add(diaFi);
+        fechaFi.add(new JLabel("Mes"));
+        fechaFi.add(mesFi);
+        fechaFi.add(new JLabel("Año"));
+        fechaFi.add(anyFi);
+
+        contenedor.add(new JLabel("TÍTULO:"));
         contenedor.add(titulo);
-
-        contenedor.add(new JLabel("Descripcion:"));
+        contenedor.add(new JLabel("DESCRIPCIÓN:"));
         contenedor.add(descripcion);
-        contenedor.add(new JLabel("Prioridad:"));
+
+        contenedor.add(new JLabel("PRIORIDAD:"));
         contenedor.add(prioridad);
-        contenedor.add(new JLabel("Coste de Facturación:"));
+
+        contenedor.add(new JLabel("FECHA INICIO"));
+        contenedor.add(fechaIn);
+
+        contenedor.add(new JLabel("FECHA FIN"));
+        contenedor.add(fechaFi);
+
         contenedor.add(costeFacturación);
-        contenedor.add(new JLabel("Horas Invertidas:"));
-        contenedor.add(horasInvertidas);
-        contenedor.add(new JLabel("Identificador:"));
-        contenedor.add(identificador);
-        contenedor.add(new JLabel("Tipo Resultado:"));
-        contenedor.add(Resultado);
 
-
-
-        contenedor.add(panel);
-
-        contenedor.add(banyadirTareas);
+        contenedor.add(bCrearTarea);
         formulario.pack();
         formulario.setVisible(true);
-        limpiarCampos();
 
-
-       /* banyadirTareas.addActionListener(new ActionListener() {
+        bCrearTarea.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                crearTarea();
 
-                try {
-                    insetarTarea();
-                } catch (DarDeAltaPersonaException darDeAltaPersonaException) {
-                    darDeAltaPersonaException.printStackTrace();
-                }
             }
-        });*/
-
-
+        });
     }
 
-    /*public void insetarTarea() {
-        controlador.insertarTarea();
+    public void crearTarea(){
 
-    }*/
-
-
-    public void limpiarCampos() {
-        titulo.setText("");
-        descripcion.setText("");
-        prioridad.setText("");
-        identificador.setText("");
-        horasInvertidas.setText("");
-        Resultado.setText("");
-        costeFacturación.setText("");
     }
-
 
 }
