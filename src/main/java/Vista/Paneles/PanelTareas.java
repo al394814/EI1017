@@ -2,13 +2,29 @@ package Vista.Paneles;
 
 import Controlador.Controlador;
 import Modelo.Modelo;
+
+import Vista.Formularios.AnyadirTarea.FormularioAnyadirEtiqueta;
+import Vista.Formularios.FormularioAnyadirPersonaTarea;
 import Vista.Vista;
+import Controlador.Controlador;
+import Modelo.Modelo;
+import Modelo.Proyecto.Personas.Persona;
+import Vista.Formularios.AnyadirPersona.FormularioAnyadirPersonas;
+import Vista.Formularios.AnyadirPersona.FormularioBuscarPersona;
+import Vista.Formularios.AnyadirPersona.FormularioListarPersonaSinTarea;
+import Vista.TratamientoErrores;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
+import Vista.TratamientoErrores;
 
 public class PanelTareas extends JPanel {
     private Controlador controlador;
@@ -26,20 +42,21 @@ public class PanelTareas extends JPanel {
         JButton bBuscarTarea = new JButton("Buscar Tarea");
 
         JButton bInsetarTarea = new JButton("Añadir Tarea");
-        JButton bBorrarTarea = new JButton("Borrar Tarea ");
+        JButton bBorrarTarea = new JButton("Borrar Persona de Tarea ");
         JButton bfinalizarTarea = new JButton("Finalizar");
 
-        JButton bListarTareaSinPersona = new JButton("Listar Tareas Sin Personas");
+        JButton bEtiqueta = new JButton("Añadir etiqueta");
+        JButton bAñadirPersonas = new JButton("Añadir Personas");
 
         JLabel jDNI = new JLabel("Nombre de la tarea: ");
         dniTarea = new JTextField(10);
 
-        //String datos = modelo.informacionClientes(modelo.getClientes());
+        String datos = modelo.informacionTarea(modelo.getTareas());
 
         JScrollPane panel = new JScrollPane(areaDatosTarea);
         panel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         panel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        //rellenarInformacion(datos);
+        rellenarInformacion(datos);
 
 
       /*  bBuscarPersona.addActionListener(new ActionListener() {
@@ -49,33 +66,70 @@ public class PanelTareas extends JPanel {
             }
         })*/
 
-        /*bInsetarPersona.addActionListener(new ActionListener() {
+      /*  bInsetarTarea.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                new FormularioCrearPersona(controlador);
+                new FormularioAnyadirTarea(controlador);
             }
-        });*/
-
-        bBorrarTarea.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                borrarTarea();
-            }
-
         });
 
+        */bBorrarTarea.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (dniTarea.getText().length() == 0) {
+                    new TratamientoErrores("  No hay escrito ningun titulo  ");
+                } else if (!controlador.encontrarTareab(dniTarea.getText())) {
+                    new TratamientoErrores("  No se encuentra la tarea con ese titulo  ");
+                } else {
+                    borrarTarea();
+                }
+            }
+        });
+        finalizarTarea(dniTarea);
         bfinalizarTarea.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                finalizarTarea();
+                if (dniTarea.getText().length() == 0) {
+                    new TratamientoErrores("  No hay escrito ningun titulo  ");
+                } else if (!controlador.encontrarTareab(dniTarea.getText())) {
+                    new TratamientoErrores("  No se encuentra la tarea con ese titulo  ");
+                } else {
+                    new FormularioAnyadirEtiqueta(controlador, dniTarea);
+                }
             }
         });
+
+
        /* bListarPersonasSinTarea.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new FormularioListarPersonasSinTarea(controlador);
 
             }
         });*/
+        bAñadirPersonas.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (dniTarea.getText().length() == 0) {
+                    new TratamientoErrores("  No hay escrito ningun titulo  ");
+                } else if (!controlador.encontrarTareab(dniTarea.getText())) {
+                    new TratamientoErrores("  No se encuentra la tarea con ese titulo  ");
+                } else {
+                    new FormularioAnyadirPersonaTarea(controlador, dniTarea);
+                }
+            }
+        });
+
+        bEtiqueta.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (dniTarea.getText().length() == 0) {
+                    new TratamientoErrores("  No hay escrito ningun titulo  ");
+                } else if (!controlador.encontrarTareab(dniTarea.getText())) {
+                    new TratamientoErrores("  No se encuentra la tarea con ese titulo  ");
+                } else {
+                    new FormularioAnyadirEtiqueta(controlador, dniTarea);
+                }
+            }
+        });
+
 
         JPanel panelDNI = new JPanel();
         panelDNI.add(jDNI);
@@ -90,7 +144,8 @@ public class PanelTareas extends JPanel {
         panelOption.add(bInsetarTarea);
         panelOption.add(bBorrarTarea);
         panelOption.add(bfinalizarTarea);
-        panelOption.add(bListarTareaSinPersona);
+        panelOption.add(bEtiqueta);
+        panelOption.add(bAñadirPersonas);
 
         contenedor.add(panelOption);
         contenedor.add(panel);
@@ -99,7 +154,7 @@ public class PanelTareas extends JPanel {
         areaDatosTarea.setForeground(Color.BLACK);
         areaDatosTarea.setEditable(false);
 
-    }
+    
       /*  public void buscarPersona() {
         if (!dniIsEmpty()){
             if controlador.
@@ -108,15 +163,21 @@ public class PanelTareas extends JPanel {
         }*/
 
 
-    public boolean dniIsEmpty() {
-        return (dniTarea.getText().length() <= 0);
-    }
-    public void borrarTarea()  {
+
 
     }
-    public void finalizarTarea(){}
+    public void borrarTarea(){
+
+    }
+
+    public void rellenarInformacion(String datos){
+        areaDatosTarea.setText("");
+        areaDatosTarea.append(datos);
+    }
 
 
-
+    public void finalizarTarea(JTextField dniTarea){
+        controlador.finalizar(dniTarea.getText());
+    }
 
 }

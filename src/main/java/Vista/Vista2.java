@@ -32,17 +32,11 @@ public class Vista2 extends Vista
 
         ventana.add(pestanyas);
         ventana.pack();
-        ventana.setVisible(true);// hacemos la ventsana visibel
+        ventana.setVisible(true);
 
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public void actualizar(){
-        vistaPersonas.actualizar();
-    }
 
-    public void getModelo(){
-        this.modelo = modelo;
-    }
 
 
 }

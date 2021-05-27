@@ -1,13 +1,10 @@
 package Modelo;
 
-import Modelo.Excepciones.DarDeAltaPersonaException;
+import Modelo.Excepciones.*;
 import Modelo.Metodos.ListaPersonasNoResaponsablesDeTareas;
-import Modelo.Metodos.TieneLista;
-import Modelo.Metodos.UtilidadesParaListas;
 import Modelo.Proyecto.Personas.Persona;
 import Modelo.Proyecto.Proyecto;
 import Modelo.Proyecto.Tareas.Tarea;
-import Vista.Paneles.PanelPersonas;
 import Vista.Vista;
 
 import java.io.FileOutputStream;
@@ -44,6 +41,14 @@ public class Modelo implements InterfaceModelo {
 
     public void insertarPersona(String nombre, String dni, String correo) throws DarDeAltaPersonaException {
         proyecto.añadirPersonaProyecto(nombre, dni, correo);
+    }
+    public boolean buscarPersonat(String dni){
+        Persona persona = proyecto.devuelvoPersonaConEsteDni(dni);
+        if (persona == null){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public Persona buscarPersona(String dni) {
@@ -86,6 +91,77 @@ public class Modelo implements InterfaceModelo {
         }
         return datos;
     }
+
+    public void añadirEtiqueta(String titulo, String texto) {
+
+        Tarea tarea = encontrarTarea(titulo);
+            tarea.añadirEtiqueta(texto);
+    }
+
+    public Tarea encontrarTarea(String titulo) {
+        List <Tarea> lista = proyecto.getTareas();
+        for (Tarea t : lista ){
+            if(t.getTítulo() == titulo ){
+                return t;
+            }
+        }
+        return null;
+    }
+
+    public List< Tarea> getTareas() {
+        return proyecto.getTareas();
+    }
+
+    public String informacionTarea(List<Tarea> tareas) {
+        String datos = "";
+        String tareaf= null;
+        if (tareas == null) {
+            System.out.print("No hay personas");
+        } else {
+            datos += "TITULO\tRESPONSABLE\tFECHA DE CREACION\tESTADO\n";
+            for (Tarea p : tareas) {
+                String datos2 = "";
+                if(p.EstadoTarea()) {
+                    tareaf= "Finalizado";
+                }else{tareaf = "Sin finalizar";}
+
+                datos += (p.getTítulo() + "\t" + p.getResponsable().getNombre() + "\t" + p.getAtributosFecha().getFechaCreación() + "\t" + tareaf + "\n");
+            }
+        }
+        return datos;
+    }
+
+    public void finalizarTarea(String titulo) {
+
+        Tarea tarea = encontrarTarea(titulo);
+        if (tarea == null) {
+
+        } else {tarea.finalizarTarea();}
+    }
+
+    public void BorrarPersona(String titulo, String dni) throws EliminasElResponsableException, PersonaNoSeEncuentraEnListaPersonasTarea {
+        Tarea tarea = encontrarTarea(titulo);
+        Persona persona = buscarPersona(dni);
+        tarea.eliminarPersonaTarea(persona);
+    }
+
+    public void AnyadirPersonaTarea(String titulo, String dni) throws NoIntroduzcaDosVecesLaMismaPersonaException, PersonaNoSeEncuentraEnProyectoException {
+        Tarea tarea = encontrarTarea(titulo);
+        Persona persona = buscarPersona(dni);
+        persona.añadirTareas(tarea);
+        tarea.addPersonasTarea(persona, proyecto);
+
+
+
+
+    }
 }
+
+
+
+  /*  public void insertarTarea() {
+        proyecto.añadirTareaProyecto(titulos, descripcion,);*/
+
+
 
 

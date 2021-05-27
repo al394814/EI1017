@@ -48,6 +48,7 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
 
     }
 
+
     public String getTítulo() {
         return título;
     }
@@ -114,6 +115,10 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
         this.getAtributosFecha().Finalizar();
     }
 
+    public void añadirEtiqueta(String etiqueta){
+        etiquetas.add(etiqueta);
+    }
+
 
     public List getLista() {
         return personas;
@@ -121,6 +126,9 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
 
     public String getClave() {
         return getTítulo();
+    }
+    public Persona getResponsable(){
+        return responsable;
     }
 
     public void setFacturacion(Facturacion facturacion) {

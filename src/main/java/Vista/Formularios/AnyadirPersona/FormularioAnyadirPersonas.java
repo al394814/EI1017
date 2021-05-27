@@ -56,7 +56,7 @@ public class FormularioAnyadirPersonas {
             public void actionPerformed(ActionEvent e) {
 
                 try {
-                    insetarCliente();
+                    insetarPersona();
                 } catch (DarDeAltaPersonaException darDeAltaPersonaException) {
                     darDeAltaPersonaException.printStackTrace();
                 }
@@ -72,7 +72,7 @@ public class FormularioAnyadirPersonas {
         correo.setText("");
     }
 
-    public void insetarCliente() throws DarDeAltaPersonaException {
+    public void insetarPersona() throws DarDeAltaPersonaException {
         if (nombre.getText().length() > 0 && dni.getText().length() > 0 && correo.getText().length() > 0) {
             System.out.print("Añadiendo");
             controlador.insertarPersona(nombre.getText(), dni.getText(), correo.getText());

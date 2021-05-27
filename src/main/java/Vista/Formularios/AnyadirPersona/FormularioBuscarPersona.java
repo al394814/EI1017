@@ -1,7 +1,8 @@
-package Vista.Formularios;
+package Vista.Formularios.AnyadirPersona;
 
 import Controlador.Controlador;
 import Modelo.Proyecto.Personas.Persona;
+import Modelo.Proyecto.Tareas.Tarea;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,7 +42,11 @@ public class FormularioBuscarPersona {
         contenedor.add(correo);
 
        contenedor.add(new JLabel("Tareas:"));
-       tarea.setText(persona.getDni());//Falta poner las tareas
+       String datos = null;
+       for (Tarea t : persona.getListaTareas()) {
+           datos += (t.getTítulo() + "\t" );
+       }
+       tarea.setText(datos);
        tarea.setEditable(false);
        contenedor.add(tarea);
 

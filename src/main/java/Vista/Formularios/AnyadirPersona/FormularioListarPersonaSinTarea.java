@@ -1,4 +1,4 @@
-package Vista.Formularios;
+package Vista.Formularios.AnyadirPersona;
 
 import Controlador.Controlador;
 import Modelo.Proyecto.Personas.Persona;

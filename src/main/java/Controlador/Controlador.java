@@ -1,15 +1,12 @@
 package Controlador;
 
-import Modelo.Excepciones.DarDeAltaPersonaException;
+import Modelo.Excepciones.*;
 import Modelo.Modelo;
 import Modelo.Proyecto.Personas.Persona;
-import Vista.Paneles.PanelPersonas;
-import Vista.Paneles.PanelTareas;
 import Vista.Vista;
 
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Controlador implements InterfaceControlador {
     private Modelo modelo;
@@ -34,7 +31,10 @@ public class Controlador implements InterfaceControlador {
     }
 
 
-
+    public Boolean buscarPersonat(String dni){
+        boolean res =  modelo.buscarPersonat(dni);
+        return res;
+    }
 
     public Persona buscarPersona(String dni){
        Persona persona=  modelo.buscarPersona(dni);
@@ -50,4 +50,33 @@ public class Controlador implements InterfaceControlador {
     public void guardarProyecto() throws IOException {
         modelo.guardarProyecto();
     }
+
+    public void añadirEtiqueta(String titulo,String text) {
+        modelo.añadirEtiqueta(titulo, text);
+    }
+
+    public void finalizar(String text) {
+        modelo.finalizarTarea(text);
+    }
+
+    public void BorrarPersona(String tarea, String dni) throws EliminasElResponsableException, PersonaNoSeEncuentraEnListaPersonasTarea {
+        modelo.BorrarPersona(tarea, dni);
+
+    }
+
+    public void AnyadirPersonaTarea(String titulo, String dni) throws NoIntroduzcaDosVecesLaMismaPersonaException, PersonaNoSeEncuentraEnProyectoException {
+        modelo.AnyadirPersonaTarea(titulo, dni);
+
+    }
+
+    public boolean encontrarTareab(String titulo) {
+        if (modelo.encontrarTarea(titulo) == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+  /*  public void insertarTarea() {
+        modelo.insertarTarea();
+    }*/
 }

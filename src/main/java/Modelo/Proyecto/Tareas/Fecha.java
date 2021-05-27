@@ -1,18 +1,19 @@
 package Modelo.Proyecto.Tareas;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 public class Fecha implements Serializable {
 
-    String fechaCreación;
-    String fechaFinalización;
+    LocalDateTime fechaCreación;
+    LocalDateTime fechaFinalización;
     boolean finalizado; //true--> acabado || false--> sin acabar
 
     public Fecha(){}
 
-    public Fecha(String fechaCreación,String fechaFinalización, boolean finalizado){
-        this.fechaCreación=fechaCreación;
-        this.fechaFinalización=fechaFinalización;
+    public Fecha(boolean finalizado){
+        this.fechaCreación=LocalDateTime.now();
+        this.fechaFinalización= null;
         this.finalizado=finalizado;
     }
 
@@ -20,17 +21,17 @@ public class Fecha implements Serializable {
         return finalizado;
     }
 
-    public String getFechaFinalización() {
+    public LocalDateTime getFechaFinalización() {
         return fechaFinalización;
     }
 
-    public String getFechaCreación() {
+    public LocalDateTime getFechaCreación() {
         return fechaCreación;
     }
 
-    public static Fecha crearFecha(String fechaCreación,String fechaFinalización, boolean finalizado){
+    public static Fecha crearFecha(boolean finalizado){
 
-        return new Fecha(fechaCreación,fechaFinalización,finalizado);
+        return new Fecha(finalizado);
 
     }
 

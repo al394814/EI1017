@@ -4,18 +4,15 @@ import Controlador.Controlador;
 import Modelo.Modelo;
 import Modelo.Proyecto.Personas.Persona;
 import Vista.Formularios.AnyadirPersona.FormularioAnyadirPersonas;
-import Vista.Formularios.FormularioBuscarPersona;
-import Vista.Formularios.FormularioListarPersonaSinTarea;
+import Vista.Formularios.AnyadirPersona.FormularioBuscarPersona;
+import Vista.Formularios.AnyadirPersona.FormularioListarPersonaSinTarea;
 import Vista.TratamientoErrores;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 
 public class PanelPersonas extends JPanel {
     private Controlador controlador;
@@ -58,9 +55,9 @@ public class PanelPersonas extends JPanel {
                 if (dniPersona.getText().length()  == 0){
                     new TratamientoErrores("  No hay escrito ningun dni  ");
                 }
-                else{
-                buscarPersona(dniPersona.getText());
-                }
+                else if(!controlador.buscarPersonat(dniPersona.getText())){
+                    new TratamientoErrores("No hay personas con ese DNI");
+                }else{buscarPersona(dniPersona.getText());}
             }
         });
 
@@ -144,7 +141,5 @@ public class PanelPersonas extends JPanel {
     }
 
 
-    public void actualizar(){
-        String datos = modelo.informacionPersona(modelo.getPersona());
-        rellenarInformacion(datos);     }
+
 }
