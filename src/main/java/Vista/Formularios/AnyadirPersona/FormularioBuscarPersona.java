@@ -42,7 +42,7 @@ public class FormularioBuscarPersona {
         contenedor.add(correo);
 
        contenedor.add(new JLabel("Tareas:"));
-       String datos = null;
+       String datos = "";
        for (Tarea t : persona.getListaTareas()) {
            datos += (t.getTítulo() + "\t" );
        }

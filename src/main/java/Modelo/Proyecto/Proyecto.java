@@ -108,6 +108,12 @@ public class Proyecto implements Serializable {
                 return tarea;
         return null;
     }
+    public Tarea devuelvePersonaConEsteTitulo1(String titulo){
+        for (Tarea tarea : this.getTareas())
+            if (tarea.getTítulo().equals(titulo))
+                return tarea;
+        return null;
+    }
 
 
     public Tarea devuelvoTareaConEsteTítulo(String título){

@@ -110,13 +110,8 @@ public class Modelo implements InterfaceModelo {
     }
 
     public Tarea encontrarTarea(String titulo) {
-        List <Tarea> lista = proyecto.getTareas();
-        for (Tarea t : lista ){
-            if(t.getTítulo() == titulo ){
-                return t;
-            }
-        }
-        return null;
+       Tarea tarea =  proyecto.devuelvePersonaConEsteTitulo1(titulo);
+        return tarea;
     }
 
     public List< Tarea> getTareas() {
@@ -143,7 +138,7 @@ public class Modelo implements InterfaceModelo {
                     responsable = p.getResponsable().getNombre();
                 }
 
-                datos += (p.getTítulo() + "\t" + responsable + "\t" + p.getAtributosFecha().getFechaCreación() + "\t" + tareaf + "\n");
+                datos += (p.getTítulo() + "\t" + responsable + "\t" + p.getAtributosFecha().getFechaCreación() + "\t\t" + tareaf + "\n");
             }
         }
         return datos;
@@ -168,13 +163,10 @@ public class Modelo implements InterfaceModelo {
     }
 
     public void AnyadirPersonaTarea(String titulo, String dni) throws NoIntroduzcaDosVecesLaMismaPersonaException, PersonaNoSeEncuentraEnProyectoException {
-        Tarea tarea = encontrarTarea(titulo);
-        Persona persona = buscarPersona(dni);
+        Tarea tarea = proyecto.devuelvePersonaConEsteTitulo1(titulo);
+        Persona persona = proyecto.devuelvoPersonaConEsteDni(dni);
         persona.añadirTareas(tarea);
-        tarea.addPersonasTarea(persona, proyecto);
-
-
-
+        tarea.addPersonasTarea2(persona);
 
     }
 

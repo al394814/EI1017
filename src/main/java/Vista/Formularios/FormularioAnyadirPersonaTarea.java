@@ -13,7 +13,12 @@ import java.awt.event.ActionListener;
 public class FormularioAnyadirPersonaTarea {
     Controlador controlador;
     private JFrame formulario;
+
+    private JCheckBox tardes = new JCheckBox("Responsable");
+    private JCheckBox domingos = new JCheckBox("No responsable");
+
     public FormularioAnyadirPersonaTarea(Controlador controlador, JTextField titulo){
+
         this.controlador= controlador;
         formulario = new JFrame("Añadir Persona de Tarea");
         formulario.setLayout(new GridLayout(10, 2));
@@ -25,9 +30,9 @@ public class FormularioAnyadirPersonaTarea {
         contenedor.add(proyectoLabel);
         contenedor.add(dni);
         contenedor.add(aceptar);
+
         formulario.pack();
 
-        formulario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         formulario.setVisible(true);
 
 
@@ -35,6 +40,7 @@ public class FormularioAnyadirPersonaTarea {
             public void actionPerformed(ActionEvent e) {
 
                 try {
+                    System.out.print("añadir");
                     AnyadirPersona(titulo, dni.getText());
                 } catch (NoIntroduzcaDosVecesLaMismaPersonaException noIntroduzcaDosVecesLaMismaPersonaException) {
                     noIntroduzcaDosVecesLaMismaPersonaException.printStackTrace();

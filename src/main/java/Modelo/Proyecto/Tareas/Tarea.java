@@ -54,7 +54,10 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
         this.prioridad = prioridad;
         this.atributosFecha = fecha;
         this.coste = coste;
-
+        this.personas= new LinkedList<>();
+        this.ResultadoTarea = null;
+        this.etiquetas = new LinkedList<>();
+        this.facturacion = null;
     }
 
 
@@ -84,6 +87,10 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
             throw new PersonaNoSeEncuentraEnProyectoException();
         if (!UtilidadesParaListas.objetoEstaEnListaObjetos(personaNueva.getClave(),this.personas))
             throw new NoIntroduzcaDosVecesLaMismaPersonaException();
+        this.personas.add(personaNueva);
+    }
+
+    public void addPersonasTarea2(Persona personaNueva){
         this.personas.add(personaNueva);
     }
 
