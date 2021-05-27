@@ -6,10 +6,12 @@ import Modelo.Proyecto.Personas.Persona;
 import Modelo.Proyecto.Proyecto;
 import Modelo.Proyecto.Tareas.Tarea;
 import Vista.Vista;
+import com.sun.jdi.IntegerValue;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -47,6 +49,15 @@ public class Modelo implements InterfaceModelo {
         if (persona == null){
             return false;
         }else{
+            return true;
+        }
+    }
+
+    public boolean encontrarTareab(String titulo){
+        Tarea tarea = proyecto.devuelvePersonaConEsteTitulo(titulo);
+        if (tarea == null) {
+            return false;
+        } else {
             return true;
         }
     }
@@ -115,6 +126,7 @@ public class Modelo implements InterfaceModelo {
     public String informacionTarea(List<Tarea> tareas) {
         String datos = "";
         String tareaf= null;
+        String responsable = null;
         if (tareas == null) {
             System.out.print("No hay personas");
         } else {
@@ -125,7 +137,13 @@ public class Modelo implements InterfaceModelo {
                     tareaf= "Finalizado";
                 }else{tareaf = "Sin finalizar";}
 
-                datos += (p.getTítulo() + "\t" + p.getResponsable().getNombre() + "\t" + p.getAtributosFecha().getFechaCreación() + "\t" + tareaf + "\n");
+                if(p.getResponsable() == null){
+                    responsable ="No hay responsable";
+                }else{
+                    responsable = p.getResponsable().getNombre();
+                }
+
+                datos += (p.getTítulo() + "\t" + responsable + "\t" + p.getAtributosFecha().getFechaCreación() + "\t" + tareaf + "\n");
             }
         }
         return datos;
@@ -136,7 +154,11 @@ public class Modelo implements InterfaceModelo {
         Tarea tarea = encontrarTarea(titulo);
         if (tarea == null) {
 
-        } else {tarea.finalizarTarea();}
+        } else {
+            tarea.finalizarTarea();
+            Date fecha =  new Date();
+            tarea.setFechafinalizar(String.valueOf(fecha.getDate()));
+        }
     }
 
     public void BorrarPersona(String titulo, String dni) throws EliminasElResponsableException, PersonaNoSeEncuentraEnListaPersonasTarea {
@@ -154,6 +176,12 @@ public class Modelo implements InterfaceModelo {
 
 
 
+    }
+
+    public void CrearTarea(String titulo, String descripcion, String prioridad, String diaIn, String mesIn, String añoIn, String facturacion) throws PersonaResponsableNoEstaEnListaException, DarDeAltaTareasException {
+        int prioridad1 = Integer.parseInt(prioridad);
+        double coste = Double.parseDouble(facturacion);
+        proyecto.añadirTareaProyecto2(titulo, descripcion, prioridad1, diaIn, mesIn, añoIn, coste );
     }
 }
 

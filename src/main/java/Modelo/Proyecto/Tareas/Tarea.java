@@ -48,6 +48,15 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
 
     }
 
+    public Tarea(String titulos, String descripción, int prioridad, Fecha fecha, double coste){
+        this.título = titulos;
+        this.descripción = descripción;
+        this.prioridad = prioridad;
+        this.atributosFecha = fecha;
+        this.coste = coste;
+
+    }
+
 
     public String getTítulo() {
         return título;
@@ -61,6 +70,13 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
     }
     public static Tarea añadirTareaProyecto(String titulos, String descripción, LinkedList<Persona> personas, Persona responsable, int prioridad, Fecha atributosFecha, Resultado resultadosTarea, LinkedList<String> etiquetas,double coste,Facturacion facturacion) throws PersonaResponsableNoEstaEnListaException {
         return new Tarea(titulos,descripción,personas,responsable,prioridad,atributosFecha,resultadosTarea,etiquetas,coste,facturacion);
+    }
+
+    public static Tarea añadirTareaProyecto2 (String titulos, String descripción, int prioridad, String dia , String mes, String año, double coste){
+        String fecha = (dia+"/"+mes+"/"+año);
+        Fecha Fecha = new Fecha();
+        Fecha.setFechaCreación(fecha);
+        return new Tarea(titulos, descripción, prioridad, Fecha, coste);
     }
 
     public void addPersonasTarea(Persona personaNueva,Proyecto proyecto) throws PersonaNoSeEncuentraEnProyectoException, NoIntroduzcaDosVecesLaMismaPersonaException {
@@ -106,7 +122,9 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
 
         return sb.toString();
     }
-
+    public void setFechafinalizar(String fecha){
+        atributosFecha.setFechaFinalización(fecha);
+    }
     public boolean EstadoTarea(){
         return this.getAtributosFecha().getFinalizado();
     }
@@ -136,3 +154,4 @@ public class Tarea implements TieneLista<Persona>, TieneClave<String>, Serializa
     }
 
 }
+

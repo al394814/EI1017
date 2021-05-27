@@ -70,11 +70,13 @@ public class Controlador implements InterfaceControlador {
     }
 
     public boolean encontrarTareab(String titulo) {
-        if (modelo.encontrarTarea(titulo) == null) {
-            return false;
-        } else {
-            return true;
-        }
+        boolean res = modelo.encontrarTareab(titulo);
+        return res;
+    }
+
+    public void CrearTarea(String titulo, String descripcion, String prioridad, String diaIn, String mesIn, String añoIn, String facturacion) throws PersonaResponsableNoEstaEnListaException, DarDeAltaTareasException {
+        modelo.CrearTarea(titulo,descripcion,prioridad, diaIn, mesIn, añoIn, facturacion);
+
     }
   /*  public void insertarTarea() {
         modelo.insertarTarea();

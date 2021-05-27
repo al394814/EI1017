@@ -5,14 +5,20 @@ import java.time.LocalDateTime;
 
 public class Fecha implements Serializable {
 
-    LocalDateTime fechaCreación;
-    LocalDateTime fechaFinalización;
+    String fechaCreación;
+    String fechaFinalización;
     boolean finalizado; //true--> acabado || false--> sin acabar
 
     public Fecha(){}
 
-    public Fecha(boolean finalizado){
-        this.fechaCreación=LocalDateTime.now();
+    public Fecha(String fechaCreación, boolean finalizado){
+        this.fechaCreación= fechaCreación;
+        this.fechaFinalización= null;
+        this.finalizado=finalizado;
+    }
+
+    public Fecha(String fechaCreación, String fechaFinalización, boolean finalizado){
+        this.fechaCreación= fechaCreación;
         this.fechaFinalización= null;
         this.finalizado=finalizado;
     }
@@ -21,21 +27,26 @@ public class Fecha implements Serializable {
         return finalizado;
     }
 
-    public LocalDateTime getFechaFinalización() {
+    public String getFechaFinalización() {
         return fechaFinalización;
     }
 
-    public LocalDateTime getFechaCreación() {
+    public String getFechaCreación() {
         return fechaCreación;
     }
 
-    public static Fecha crearFecha(boolean finalizado){
+    public static Fecha crearFecha(String fechaCreación, boolean finalizado){
 
-        return new Fecha(finalizado);
+        return new Fecha(fechaCreación, finalizado);
 
     }
+    public void setFechaCreación(String fecha){
+        this.fechaCreación = fecha;
+    }
 
-
+    public void setFechaFinalización(String fecha){
+        fechaFinalización = fecha;
+    }
     public boolean isFinalizado() {
         return finalizado;
     }

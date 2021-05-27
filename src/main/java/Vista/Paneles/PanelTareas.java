@@ -4,6 +4,7 @@ import Controlador.Controlador;
 import Modelo.Modelo;
 
 import Vista.Formularios.AnyadirTarea.FormularioAnyadirEtiqueta;
+import Vista.Formularios.AnyadirTarea.FormularioAnyadirTarea;
 import Vista.Formularios.FormularioAnyadirPersonaTarea;
 import Vista.Vista;
 import Controlador.Controlador;
@@ -47,6 +48,7 @@ public class PanelTareas extends JPanel {
 
         JButton bEtiqueta = new JButton("Añadir etiqueta");
         JButton bAñadirPersonas = new JButton("Añadir Personas");
+        JButton bActualizar = new JButton("Actualizar");
 
         JLabel jDNI = new JLabel("Nombre de la tarea: ");
         dniTarea = new JTextField(10);
@@ -59,21 +61,22 @@ public class PanelTareas extends JPanel {
         rellenarInformacion(datos);
 
 
-      /*  bBuscarPersona.addActionListener(new ActionListener() {
+       bActualizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                buscarPersona();
+                String datos = modelo.informacionTarea(modelo.getTareas());
+                rellenarInformacion(datos);
             }
-        })*/
+        });
 
-      /*  bInsetarTarea.addActionListener(new ActionListener() {
+        bInsetarTarea.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
                 new FormularioAnyadirTarea(controlador);
             }
         });
 
-        */bBorrarTarea.addActionListener(new ActionListener() {
+        bBorrarTarea.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if (dniTarea.getText().length() == 0) {
@@ -94,7 +97,7 @@ public class PanelTareas extends JPanel {
                 } else if (!controlador.encontrarTareab(dniTarea.getText())) {
                     new TratamientoErrores("  No se encuentra la tarea con ese titulo  ");
                 } else {
-                    new FormularioAnyadirEtiqueta(controlador, dniTarea);
+                    finalizarTarea(dniTarea);
                 }
             }
         });
@@ -146,7 +149,7 @@ public class PanelTareas extends JPanel {
         panelOption.add(bfinalizarTarea);
         panelOption.add(bEtiqueta);
         panelOption.add(bAñadirPersonas);
-
+        panelOption.add(bActualizar);
         contenedor.add(panelOption);
         contenedor.add(panel);
         add(contenedor);

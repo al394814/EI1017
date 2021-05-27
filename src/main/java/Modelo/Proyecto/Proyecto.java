@@ -81,6 +81,12 @@ public class Proyecto implements Serializable {
         tareas.add(Tarea.añadirTareaProyecto(titulos, descripción, personas, responsable, prioridad, atributosFecha, resultadosTarea, etiquetas, coste, facturacion));
     }
 
+    public void añadirTareaProyecto2(String titulos, String descripción, int prioridad, String diaIn, String mesIn, String añoIn, double coste) throws DarDeAltaTareasException, PersonaResponsableNoEstaEnListaException {
+        if (!UtilidadesParaListas.objetoEstaEnListaObjetos(titulos, tareas))
+            throw new DarDeAltaTareasException();
+        tareas.add(Tarea.añadirTareaProyecto2(titulos, descripción, prioridad, diaIn, mesIn, añoIn, coste ));
+    }
+
     public boolean EncontramosDniEnLasPersonasDelProyecto(String dni) {
         for (Persona persona: this.getPersona())
             if (persona.getDni().equals(dni))
@@ -95,6 +101,14 @@ public class Proyecto implements Serializable {
                 return persona;
         return null;
     }
+
+    public Tarea devuelvePersonaConEsteTitulo(String titulo){
+        for (Tarea tarea : this.getTareas())
+            if (tarea.getTítulo().equals(titulo))
+                return tarea;
+        return null;
+    }
+
 
     public Tarea devuelvoTareaConEsteTítulo(String título){
 

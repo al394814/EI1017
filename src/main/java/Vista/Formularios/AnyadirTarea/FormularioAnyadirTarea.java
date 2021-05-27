@@ -1,6 +1,8 @@
 package Vista.Formularios.AnyadirTarea;
 
 import Controlador.Controlador;
+import Modelo.Excepciones.DarDeAltaTareasException;
+import Modelo.Excepciones.PersonaResponsableNoEstaEnListaException;
 import Vista.Vista;
 
 import javax.swing.*;
@@ -49,13 +51,6 @@ public class FormularioAnyadirTarea {
         fechaIn.add(new JLabel("Año"));
         fechaIn.add(anyIn);
 
-        JPanel fechaFi = new JPanel();
-        fechaFi.add(new JLabel("Dia"));
-        fechaFi.add(diaFi);
-        fechaFi.add(new JLabel("Mes"));
-        fechaFi.add(mesFi);
-        fechaFi.add(new JLabel("Año"));
-        fechaFi.add(anyFi);
 
         contenedor.add(new JLabel("TÍTULO:"));
         contenedor.add(titulo);
@@ -68,8 +63,7 @@ public class FormularioAnyadirTarea {
         contenedor.add(new JLabel("FECHA INICIO"));
         contenedor.add(fechaIn);
 
-        contenedor.add(new JLabel("FECHA FIN"));
-        contenedor.add(fechaFi);
+        contenedor.add(new JLabel("COSTE FACTURACION"));
 
         contenedor.add(costeFacturación);
 
@@ -79,14 +73,20 @@ public class FormularioAnyadirTarea {
 
         bCrearTarea.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                crearTarea();
+                try {
+                    crearTarea(titulo.getText(), descripcion.getText(), prioridad.getText(), diaIn.getText(), mesIn.getText(), anyIn.getText(), costeFacturación.getText());
+                } catch (PersonaResponsableNoEstaEnListaException personaResponsableNoEstaEnListaException) {
+                    personaResponsableNoEstaEnListaException.printStackTrace();
+                } catch (DarDeAltaTareasException darDeAltaTareasException) {
+                    darDeAltaTareasException.printStackTrace();
+                }
 
             }
         });
     }
 
-    public void crearTarea(){
-
+    public void crearTarea(String titulo, String descripcion, String prioridad, String diaIn, String mesIn, String añoIn, String facturacion) throws PersonaResponsableNoEstaEnListaException, DarDeAltaTareasException {
+        controlador.CrearTarea(titulo,descripcion,prioridad,diaIn, mesIn, añoIn, facturacion);
     }
 
 }
